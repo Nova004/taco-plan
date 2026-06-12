@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนธุรกิจร้านทาโก้ — ตลาดนัด</title>
+<!-- เมนู: ทาโก้ / นาโชส์ชีส / เลม่อนโซดา -->
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1420; --card:#1a2233; --card2:#212b40; --line:#2e3a52;
+    --text:#e8edf6; --muted:#93a1b8; --accent:#ffb020; --green:#3ddc84;
+    --red:#ff5d5d; --blue:#4da3ff; --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Sarabun',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:24px 14px 60px;}
+  .wrap{max-width:1150px; margin:0 auto;}
+  header{text-align:center; margin-bottom:22px;}
+  header h1{font-size:1.7rem; font-weight:800;}
+  header h1 span{color:var(--accent);}
+  header p{color:var(--muted); margin-top:6px; font-size:.92rem;}
+  /* tabs */
+  .tabs{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:22px;}
+  .tab{background:var(--card); border:1px solid var(--line); color:var(--muted); font-family:inherit; font-weight:700; font-size:.9rem; padding:10px 18px; border-radius:99px; cursor:pointer; transition:.15s;}
+  .tab.active{background:var(--accent); color:#1a1206; border-color:var(--accent);}
+  .page{display:none;} .page.active{display:block;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin-bottom:18px;}
+  .card h2{font-size:1.05rem; font-weight:700; margin-bottom:12px;}
+  .badge{display:inline-block; font-size:.68rem; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--card2); color:var(--muted); border:1px solid var(--line); vertical-align:middle;}
+  table{width:100%; border-collapse:collapse; font-size:.9rem;}
+  th{color:var(--muted); font-weight:600; text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); font-size:.8rem;}
+  td{padding:7px 8px; border-bottom:1px solid rgba(46,58,82,.5);}
+  td:last-child, th:last-child{text-align:right;}
+  input[type=number]{width:90px; background:var(--card2); border:1px solid var(--line); border-radius:8px; color:var(--text); font-family:inherit; font-size:.92rem; font-weight:600; padding:6px 9px; outline:none; text-align:right;}
+  input[type=number]:focus{border-color:var(--accent);}
+  input[type=number].wide{width:110px;}
+  input[type=checkbox]{accent-color:var(--accent); width:17px; height:17px; cursor:pointer;}
+  input[type=text]{width:100%; background:transparent; border:1px solid transparent; border-radius:8px; color:var(--text); font-family:inherit; font-size:.88rem; padding:5px 7px; outline:none; transition:.15s;}
+  input[type=text]:hover{border-color:var(--line);}
+  input[type=text]:focus{background:var(--card2); border-color:var(--accent);}
+  input[type=text].small{color:var(--muted); font-size:.78rem;}
+  .del{background:none; border:none; color:#5a6982; font-size:.95rem; cursor:pointer; padding:2px 6px; margin-left:4px; border-radius:6px;}
+  .del:hover{color:var(--red); background:rgba(255,93,93,.1);}
+  .addrow{display:block; width:100%; margin-top:10px; background:none; border:1px dashed var(--line); color:var(--muted); font-family:inherit; font-size:.84rem; font-weight:600; padding:8px; border-radius:10px; cursor:pointer; transition:.15s;}
+  .addrow:hover{border-color:var(--accent); color:var(--accent);}
+  td:last-child{white-space:nowrap;}
+  input[type=date]{width:100%; background:var(--card2); border:1px solid var(--line); border-radius:8px; color:var(--text); font-family:inherit; font-size:.9rem; font-weight:600; padding:7px 9px; outline:none; color-scheme:dark;}
+  input[type=date]:focus{border-color:var(--accent);}
+  .loggrid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  @media(max-width:700px){.loggrid{grid-template-columns:1fr 1fr;}}
+  .loggrid input[type=number]{width:100%; text-align:left;}
+  .loggrid input[type=text]{background:var(--card2); border-color:var(--line);}
+  .total-row{display:flex; justify-content:space-between; background:var(--card2); border-radius:10px; padding:11px 14px; margin-top:12px; font-weight:800; font-size:1rem;}
+  .total-row span:last-child{color:var(--accent);}
+  .grand{background:linear-gradient(135deg,#2a2008,#1a2233); border:1px solid rgba(255,176,32,.4);}
+  .grand .total-row{background:rgba(255,176,32,.12);}
+  .note{font-size:.78rem; color:#6b7a94; margin-top:8px; line-height:1.55;}
+  .excluded{opacity:.38; text-decoration:line-through;}
+  /* KPIs */
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:13px; margin-bottom:18px;}
+  .kpi{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px; text-align:center;}
+  .kpi .v{font-size:1.65rem; font-weight:800; margin:3px 0;}
+  .kpi .t{font-size:.82rem; color:var(--muted); font-weight:600;}
+  .kpi .s{font-size:.72rem; color:#6b7a94;}
+  .kpi.green .v{color:var(--green);} .kpi.amber .v{color:var(--accent);} .kpi.blue .v{color:var(--blue);}
+  .field{margin-bottom:11px;}
+  .field label{display:block; font-size:.84rem; color:var(--muted); margin-bottom:4px;}
+  .inrow{display:flex; align-items:center; gap:8px;}
+  .inrow input{width:100%; text-align:left;}
+  .unit{font-size:.78rem; color:var(--muted); white-space:nowrap; min-width:55px;}
+  /* sliders */
+  .slider-block{margin-bottom:16px;}
+  .slider-block .row{display:flex; justify-content:space-between; font-size:.9rem; font-weight:700; margin-bottom:2px;}
+  .slider-block .row span:last-child{color:var(--accent);}
+  input[type=range]{width:100%; accent-color:var(--accent);}
+  .alert{border-radius:10px; padding:10px 14px; font-size:.86rem; line-height:1.5; border:1px solid; margin-top:10px;}
+  .alert.bad{background:rgba(255,93,93,.08); border-color:rgba(255,93,93,.35); color:#ffb3b3;}
+  .alert.warn{background:rgba(255,176,32,.08); border-color:rgba(255,176,32,.35); color:#ffd58a;}
+  .alert.good{background:rgba(61,220,132,.08); border-color:rgba(61,220,132,.35); color:#9ef0c3;}
+  /* checklist */
+  .check-item{display:flex; gap:10px; align-items:flex-start; padding:10px 4px; border-bottom:1px solid rgba(46,58,82,.5); cursor:pointer;}
+  .check-item input{margin-top:3px; flex-shrink:0;}
+  .check-item .txt b{font-size:.92rem;}
+  .check-item .txt p{font-size:.8rem; color:var(--muted); margin-top:2px; line-height:1.5;}
+  .check-item.done .txt{opacity:.45;} .check-item.done .txt b{text-decoration:line-through;}
+  .progress{height:9px; background:var(--card2); border-radius:99px; overflow:hidden; margin:6px 0 14px;}
+  .progress > div{height:100%; background:linear-gradient(90deg,var(--accent),var(--green)); width:0%; transition:width .3s; border-radius:99px;}
+  footer{text-align:center; color:#5a6982; font-size:.76rem; margin-top:30px; line-height:1.6;}
+  .reset{display:block; margin:16px auto 0; background:none; border:1px solid var(--line); color:var(--muted); font-family:inherit; font-size:.8rem; padding:8px 18px; border-radius:99px; cursor:pointer;}
+  .reset:hover{color:var(--text); border-color:var(--muted);}
+  .pill{font-size:.75rem; padding:3px 10px; border-radius:99px; font-weight:700;}
+  .pill.ok{background:rgba(61,220,132,.15); color:var(--green);}
+  .pill.no{background:rgba(255,93,93,.15); color:var(--red);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🌮 แผนธุรกิจร้านทาโก้ <span>ตลาดนัด</span></h1>
+    <p>ทาโก้ · นาโชส์ชีส · เลม่อนโซดา — แก้ตัวเลขได้ทุกช่อง ระบบคำนวณและบันทึกอัตโนมัติ</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-page="invest">💼 งบลงทุน & อุปกรณ์</button>
+    <button class="tab" data-page="cost">🌮 ต้นทุนเมนู & ราคาขาย</button>
+    <button class="tab" data-page="sim">📊 จุดคุ้มทุน & จำลองยอดขาย</button>
+    <button class="tab" data-page="log">📒 บันทึกยอดขาย</button>
+    <button class="tab" data-page="plan">✅ แผนลงมือ</button>
+  </div>
+
+  <!-- ======== PAGE 1: INVESTMENT ======== -->
+  <div class="page active" id="page-invest">
+    <div class="card">
+      <h2>🧱 อุปกรณ์เปิดร้าน (ต้นทุนจม) <span class="badge">ติ๊กออกได้ถ้ามีอยู่แล้ว/ยืมได้</span></h2>
+      <table id="equipTable">
+        <thead><tr><th style="width:34px;">ซื้อ</th><th>รายการ</th><th>หมายเหตุ</th><th>ราคา (บ.)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <button class="addrow" data-add="equip">+ เพิ่มอุปกรณ์</button>
+      <div class="total-row"><span>รวมค่าอุปกรณ์</span><span id="equipTotal">0 บาท</span></div>
+      <p class="note">💡 เคล็ดลับ: เต็นท์ โต๊ะ คูลเลอร์ หาซื้อมือสองได้ ลดงบลงได้ 30–40% — อย่าซื้อของสวยเกินจำเป็นก่อนพิสูจน์ว่าขายได้</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>🛒 วัตถุดิบล็อตแรก <span class="badge">สต็อก 2–3 วันขาย</span></h2>
+        <table id="stockTable"><tbody></tbody></table>
+        <button class="addrow" data-add="stock">+ เพิ่มวัตถุดิบ</button>
+        <div class="total-row"><span>รวมวัตถุดิบล็อตแรก</span><span id="stockTotal">0 บาท</span></div>
+        <p class="note">⚠️ ตอติญ่ากับชีสมีอายุจำกัด — สั่งแค่พอ 2–3 วันขาย อย่าเหมาเยอะตอนเริ่ม</p>
+      </div>
+      <div class="card">
+        <h2>💵 เงินสำรอง & ค่าใช้จ่ายเริ่มต้น</h2>
+        <table id="reserveTable"><tbody></tbody></table>
+        <button class="addrow" data-add="reserve">+ เพิ่มรายการ</button>
+        <div class="total-row"><span>รวมเงินสำรอง</span><span id="reserveTotal">0 บาท</span></div>
+        <p class="note">💡 เงินสำรองคือเส้นเลือดของร้าน — อย่าเอาไปซื้ออุปกรณ์เพิ่มเด็ดขาด</p>
+      </div>
+    </div>
+
+    <div class="card grand">
+      <h2>💰 งบลงทุนรวมทั้งหมด</h2>
+      <div class="total-row" style="font-size:1.25rem;"><span>เงินที่ต้องเตรียม</span><span id="grandTotal">0 บาท</span></div>
+      <p class="note" id="grandNote"></p>
+    </div>
+  </div>
+
+  <!-- ======== PAGE 2: MENU COST ======== -->
+  <div class="page" id="page-cost">
+    <div class="grid">
+      <div class="card">
+        <h2>🌮 ทาโก้ <span class="badge">ต่อชิ้น</span></h2>
+        <table id="tacoTable"><tbody></tbody></table>
+        <button class="addrow" data-add="taco">+ เพิ่มส่วนประกอบ</button>
+        <div class="total-row"><span>ต้นทุน/ชิ้น</span><span id="tacoVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
+          <div class="inrow"><input type="number" id="tacoPrice" min="0"><span class="unit">บาท</span></div></div>
+        <div class="total-row"><span>กำไรขั้นต้น/ชิ้น</span><span id="tacoMargin">0</span></div>
+        <div id="tacoAlert"></div>
+      </div>
+      <div class="card">
+        <h2>🧀 นาโชส์ชีส <span class="badge">ต่อกล่อง</span></h2>
+        <table id="nachoTable"><tbody></tbody></table>
+        <button class="addrow" data-add="nacho">+ เพิ่มส่วนประกอบ</button>
+        <div class="total-row"><span>ต้นทุน/กล่อง</span><span id="nachoVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
+          <div class="inrow"><input type="number" id="nachoPrice" min="0"><span class="unit">บาท</span></div></div>
+        <div class="total-row"><span>กำไรขั้นต้น/กล่อง</span><span id="nachoMargin">0</span></div>
+        <div id="nachoAlert"></div>
+      </div>
+      <div class="card">
+        <h2>🍋 เลม่อนโซดา <span class="badge">ต่อแก้ว</span></h2>
+        <table id="sodaTable"><tbody></tbody></table>
+        <button class="addrow" data-add="soda">+ เพิ่มส่วนประกอบ</button>
+        <div class="total-row"><span>ต้นทุน/แก้ว</span><span id="sodaVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
+          <div class="inrow"><input type="number" id="sodaPrice" min="0"><span class="unit">บาท</span></div></div>
+        <div class="total-row"><span>กำไรขั้นต้น/แก้ว</span><span id="sodaMargin">0</span></div>
+        <div id="sodaAlert"></div>
+      </div>
+      <div class="card">
+        <h2>🎁 เซ็ตคอมโบแนะนำ <span class="badge">คำนวณจากราคาด้านซ้าย</span></h2>
+        <table id="comboTable">
+          <thead><tr><th>เซ็ต</th><th>ราคาเต็ม</th><th>ขายเซ็ต</th><th>กำไร/เซ็ต</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="note">💡 เซ็ตคู่ + เซ็ตแก๊ง คือตัวดันยอดต่อบิล — เชียร์ลูกค้ากลุ่มให้จบที่เซ็ตแก๊งเสมอ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== PAGE 3: SIMULATOR ======== -->
+  <div class="page" id="page-sim">
+    <div class="card">
+      <h2>📅 ต้นทุนคงที่ & ค่าแรง <span class="badge">ต่อวัน</span></h2>
+      <div class="grid" style="gap:10px;">
+        <div>
+          <div class="field"><label>ค่าที่/ค่าล็อก</label><div class="inrow"><input type="number" id="fcRent" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>ค่าน้ำ-ไฟ</label><div class="inrow"><input type="number" id="fcUtil" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>ค่าเดินทาง/น้ำแข็ง/แก๊ส</label><div class="inrow"><input type="number" id="fcOther" min="0"><span class="unit">บ./วัน</span></div></div>
+        </div>
+        <div>
+          <div class="field"><label>🚚 ค่าขนส่ง (Grab/วิน ไป-กลับ)</label><div class="inrow"><input type="number" id="fcShip" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>ค่าเช่าโต๊ะ/เต็นท์จากตลาด (ถ้ามี)</label><div class="inrow"><input type="number" id="fcTable" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>ค่าแรงตัวเอง (อย่าลืม!)</label><div class="inrow"><input type="number" id="wage" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>วันขายต่อเดือน (แนะนำ 20–22)</label><div class="inrow"><input type="number" id="days" min="1" max="31"><span class="unit">วัน</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 จำลองยอดขายต่อวัน <span class="badge">ลากเลื่อนดูผล</span></h2>
+      <div class="slider-block"><div class="row"><span>🌮 ทาโก้</span><span><span id="nTaco">0</span> ชิ้น</span></div>
+        <input type="range" id="sTaco" min="0" max="100" value="30"></div>
+      <div class="slider-block"><div class="row"><span>🧀 นาโชส์ชีส</span><span><span id="nNacho">0</span> กล่อง</span></div>
+        <input type="range" id="sNacho" min="0" max="50" value="8"></div>
+      <div class="slider-block"><div class="row"><span>🍋 เลม่อนโซดา</span><span><span id="nSoda">0</span> แก้ว</span></div>
+        <input type="range" id="sSoda" min="0" max="80" value="20"></div>
+      <div style="text-align:center; margin-top:6px;"><span class="pill" id="statusPill">—</span></div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi blue"><div class="t">ยอดขาย/วัน</div><div class="v" id="kRev">—</div><div class="s">บาท</div></div>
+      <div class="kpi amber"><div class="t">กำไรขั้นต้น/วัน</div><div class="v" id="kGross">—</div><div class="s">ก่อนหักต้นทุนคงที่+ค่าแรง</div></div>
+      <div class="kpi green"><div class="t">กำไรสุทธิ/วัน</div><div class="v" id="kNet">—</div><div class="s">หักค่าแรงตัวเองแล้ว</div></div>
+      <div class="kpi green"><div class="t">กำไรสุทธิ/เดือน</div><div class="v" id="kMonth">—</div><div class="s" id="kMonthSub">—</div></div>
+      <div class="kpi blue"><div class="t">คืนทุนอุปกรณ์ภายใน</div><div class="v" id="kPayback">—</div><div class="s">จากงบลงทุนหน้าแรก</div></div>
+    </div>
+    <div id="simAlerts"></div>
+  </div>
+
+  <!-- ======== PAGE: SALES LOG ======== -->
+  <div class="page" id="page-log">
+    <div class="card">
+      <h2>📒 บันทึกยอดขายหลังปิดร้าน <span class="badge">จดทุกวันที่ขาย</span></h2>
+      <div class="loggrid">
+        <div class="field"><label>วันที่</label><input type="date" id="logDate"></div>
+        <div class="field"><label>🌮 ทาโก้ (ชิ้น)</label><input type="number" id="logTaco" min="0" placeholder="0"></div>
+        <div class="field"><label>🧀 นาโชส์ (กล่อง)</label><input type="number" id="logNacho" min="0" placeholder="0"></div>
+        <div class="field"><label>🍋 โซดา (แก้ว)</label><input type="number" id="logSoda" min="0" placeholder="0"></div>
+        <div class="field" style="grid-column:1/-1;"><label>หมายเหตุ (อากาศ / อีเวนต์ / สิ่งที่เรียนรู้วันนี้)</label><input type="text" id="logNote" placeholder="เช่น ฝนตกช่วง 1 ทุ่ม คนหาย · เซ็ตแก๊งขายดีมาก"></div>
+      </div>
+      <button class="addrow" id="logAdd" style="border-style:solid; border-color:var(--accent); color:var(--accent);">+ บันทึกยอดวันนี้</button>
+    </div>
+    <div class="kpis">
+      <div class="kpi blue"><div class="t">บันทึกแล้ว</div><div class="v" id="lgDays">0</div><div class="s">วันขาย</div></div>
+      <div class="kpi amber"><div class="t">ยอดขายเฉลี่ย/วัน</div><div class="v" id="lgAvgRev">—</div><div class="s">บาท</div></div>
+      <div class="kpi green"><div class="t">กำไรสุทธิเฉลี่ย/วัน</div><div class="v" id="lgAvgNet">—</div><div class="s">หักค่าแรงตัวเองแล้ว</div></div>
+      <div class="kpi green"><div class="t">วันที่ผ่านเป้าจริง</div><div class="v" id="lgPass">—</div><div class="s">เกณฑ์ตัดจบ: 6–8 สัปดาห์ต้องผ่าน ≥70%</div></div>
+    </div>
+    <div class="card">
+      <h2>ประวัติการขาย <span class="badge">กำไรคำนวณจากราคา/ต้นทุนปัจจุบัน</span></h2>
+      <table id="logTable">
+        <thead><tr><th>วันที่</th><th>🌮</th><th>🧀</th><th>🍋</th><th>ยอดขาย</th><th>กำไรสุทธิ</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="note">💡 จดครบ 1 เดือนคุณจะรู้ว่า วันไหน/อากาศแบบไหน ควรเตรียมของเท่าไหร่ — นี่คือเครื่องมือลดของเหลือที่ดีที่สุด</p>
+    </div>
+  </div>
+
+  <!-- ======== PAGE 4: ACTION PLAN ======== -->
+  <div class="page" id="page-plan">
+    <div class="card">
+      <h2>✅ แผนลงมือ Step-by-Step</h2>
+      <div class="progress"><div id="planBar"></div></div>
+      <div id="checklist"></div>
+      <button class="reset" id="resetPlan">ล้างเช็กลิสต์</button>
+    </div>
+  </div>
+
+  <button class="reset" id="resetAll">ล้างค่าทั้งหมดกลับเป็นค่าแนะนำ</button>
+  <footer>ตัวเลขเริ่มต้นเป็นราคาประมาณการ — ไปเช็กราคาจริงที่แม็คโคร/ตลาดสด แล้วแก้ในเว็บนี้ได้เลย<br>สูตร: เป้าจริง/วัน = (ต้นทุนคงที่ + ค่าแรงตัวเอง) ÷ กำไรขั้นต้นเฉลี่ย</footer>
+</div>
+
+<script>
+/* ===== default data ===== */
+const DEF = {
+  equip: [
+    ['เตาแบน/กระทะแบนแก๊ส (ทำทาโก้+อุ่นแป้ง)','ใหม่',2500],
+    ['ถังแก๊ส + หัวปรับ + สาย','ใหม่',1200],
+    ['เต็นท์/ร่มสนาม + โต๊ะ 2 ตัว','มือสองได้',3500],
+    ['ป้ายร้าน + ป้ายราคา + ไฟ LED วอร์มไวท์','สำคัญมาก',1500],
+    ['หม้ออุ่นชีสซอสไฟฟ้า','ใบเล็กพอ',500],
+    ['คูลเลอร์น้ำแข็ง + เหยือกกดน้ำ','มือสองได้',1100],
+    ['อุปกรณ์ครัว (ที่คีบ ถาด กล่องวัตถุดิบ มีด เขียง)','',1500],
+    ['ลังขนของ + ผ้าใบกันฝน','จัดตามลำดับตั้งร้าน',600],
+    ['กล่องเก็บเงิน + ป้ายพร้อมเพย์','',200],
+  ],
+  stock: [
+    ['แป้งตอติญ่า ~60 แผ่น',350],
+    ['เนื้อไก่/หมู + เครื่องหมัก ~4 กก.',600],
+    ['ชีส + ชีสซอส',500],
+    ['ผักสด (กะหล่ำ หอม มะเขือเทศ ผักชี)',250],
+    ['ซัลซ่า/ซอส/มายองเนส',300],
+    ['ตอติญ่าชิปส์ (นาโชส์)',250],
+    ['เลม่อน + น้ำเชื่อม + โซดา',500],
+    ['แพ็กเกจจิ้ง (กระดาษห่อ กล่อง แก้ว หลอด ถุง)',450],
+  ],
+  reserve: [
+    ['ค่าเช่าล็อกรายวันช่วงทดสอบ 4–6 ครั้ง',2500],
+    ['เงินทอนตั้งต้น (แบงก์ย่อย+เหรียญ)',1000],
+    ['เงินสำรองฉุกเฉิน (ฝนตก/ของเสีย)',2000],
+  ],
+  taco: [['แป้งตอติญ่า 6 นิ้ว',4.5],['เนื้อไก่/หมูหมัก ~50 ก.',7.5],['ผักรวม',2],['ซัลซ่า + ครีม',2.5],['ชีสโรยหน้า',3],['กระดาษห่อ + ถุง',1.5]],
+  nacho: [['ตอติญ่าชิปส์',5],['ชีสซอส',4],['เนื้อ + ซัลซ่า',4],['กล่อง + ส้อม',2]],
+  soda: [['เลม่อนสด + น้ำเชื่อม',5],['โซดา',5],['แก้ว + หลอด + น้ำแข็ง',3]],
+  prices: {taco:59, nacho:49, soda:29},
+  fixed: {fcRent:500, fcUtil:100, fcOther:100, fcShip:400, fcTable:0, wage:600, days:20},
+  sim: {sTaco:30, sNacho:8, sSoda:20},
+  plan: [
+    ['ลองทำสูตรจริง ชั่งน้ำหนัก ถ่ายรูป','ทำทาโก้ 3 ไส้ + นาโชส์ + โซดา ให้เพื่อน 5–10 คนชิม ถามว่า "ราคานี้ซื้อไหม" และดูยอดซื้อซ้ำ'],
+    ['เช็กราคาวัตถุดิบจริงที่แม็คโคร/ตลาดสด','เอาราคาจริงมาแก้ในแท็บต้นทุนเมนู — ต้นทุนผันแปรต้องไม่เกิน 40% ของราคาขาย'],
+    ['เดินสำรวจตลาดเป้าหมาย 2–3 แห่ง แห่งละ 3 รอบ','นับคนถือถุง เช็กร้านคู่แข่ง ดูว่ามีของกินสไตล์เม็กซิกันหรือยัง และกำลังซื้อวัยรุ่นถึง 59 บ.ไหม'],
+    ['หาซื้ออุปกรณ์ (เน้นมือสอง)','ดูแท็บงบลงทุน — ติ๊กออกถ้ายืมได้ อย่าให้งบบาน'],
+    ['ขายออนไลน์/พรีออเดอร์ทดสอบ 2 สัปดาห์','เปิดรับออเดอร์ในกลุ่มเพื่อน/หมู่บ้าน ดูยอดซื้อซ้ำ — คำชมไม่นับ ยอดซื้อซ้ำเท่านั้นที่นับ'],
+    ['เช่าล็อกรายวันทดลอง 4–6 ครั้ง','ลอง 2–3 ตลาด อย่าเพิ่งเซ็นรายเดือน — จดยอดขายทุกวันเทียบกับเป้าในแท็บจำลอง'],
+    ['ทดสอบราคา 50 vs 59','ขายคนละวัน ดูจำนวนที่ขายได้จริง ไม่ใช่ความรู้สึก'],
+    ['ตัดสินใจด้วยตัวเลข','ถ้า 6–8 สัปดาห์ยอดเฉลี่ยไม่ถึง 70% ของเป้าจริง → เปลี่ยนตลาดหรือปรับเมนู เขียนเกณฑ์นี้ไว้ก่อนเริ่ม!'],
+    ['ผ่านเกณฑ์ → เซ็นรายเดือน + เพิ่มเซ็ตคอมโบเต็มรูปแบบ','ค่อยลงทุนเพิ่ม ป้ายสวย ๆ ไฟเพิ่ม เมนูเสริม เมื่อยอดนิ่งแล้วเท่านั้น'],
+  ]
+};
+
+const $ = id => document.getElementById(id);
+const fmt = (n,d=0) => n.toLocaleString('th-TH',{maximumFractionDigits:d});
+let S = JSON.parse(JSON.stringify(DEF)); // state
+S.equipOn = DEF.equip.map(()=>true);
+S.planDone = DEF.plan.map(()=>false);
+S.log = [];
+
+function saveS(){ try{ localStorage.setItem('taco-plan-v2', JSON.stringify(S)); }catch(e){} }
+function loadS(){
+  try{
+    const d = JSON.parse(localStorage.getItem('taco-plan-v2')||'null');
+    if(d){ S = d;
+      // backfill if structure changed
+      if(!S.equipOn) S.equipOn = S.equip.map(()=>true);
+      if(!S.planDone) S.planDone = DEF.plan.map(()=>false);
+      if(!S.log) S.log = [];
+      if(!S.fixed) S.fixed = JSON.parse(JSON.stringify(DEF.fixed));
+      Object.entries(DEF.fixed).forEach(([k,v])=>{ if(S.fixed[k]===undefined) S.fixed[k]=v; });
+    }
+  }catch(e){}
+}
+function esc(s){ return String(s).replace(/[<>&"]/g, c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
+
+/* ===== render editable tables ===== */
+function rowInput(val, cb){
+  const inp = document.createElement('input');
+  inp.type='number'; inp.min='0'; inp.step='0.5'; inp.value=val;
+  inp.addEventListener('input', ()=>{ cb(parseFloat(inp.value)||0); calcAll(); saveS(); });
+  return inp;
+}
+function txtInput(val, cb, small){
+  const inp = document.createElement('input');
+  inp.type='text'; inp.value=val; inp.placeholder='ชื่อรายการ...';
+  if(small) inp.className='small';
+  inp.addEventListener('input', ()=>{ cb(inp.value); saveS(); });
+  return inp;
+}
+function delBtn(cb){
+  const b = document.createElement('button');
+  b.className='del'; b.textContent='✕'; b.title='ลบรายการ';
+  b.addEventListener('click', ()=>{ cb(); calcAll(); saveS(); });
+  return b;
+}
+function renderEquip(){
+  const tb = $('equipTable').querySelector('tbody'); tb.innerHTML='';
+  S.equip.forEach((r,i)=>{
+    const tr = document.createElement('tr');
+    if(!S.equipOn[i]) tr.className='excluded';
+    const tdC = document.createElement('td');
+    const cb = document.createElement('input'); cb.type='checkbox'; cb.checked=S.equipOn[i];
+    cb.addEventListener('change',()=>{ S.equipOn[i]=cb.checked; renderEquip(); calcAll(); saveS(); });
+    tdC.appendChild(cb);
+    const td1 = document.createElement('td'); td1.appendChild(txtInput(r[0], v=>S.equip[i][0]=v));
+    const td2 = document.createElement('td'); td2.appendChild(txtInput(r[1]||'', v=>S.equip[i][1]=v, true));
+    const td3 = document.createElement('td');
+    td3.appendChild(rowInput(r[2], v=>S.equip[i][2]=v));
+    td3.appendChild(delBtn(()=>{ S.equip.splice(i,1); S.equipOn.splice(i,1); renderEquip(); }));
+    tr.append(tdC,td1,td2,td3); tb.appendChild(tr);
+  });
+}
+function renderSimpleTable(elId, arr){
+  const tb = $(elId).querySelector('tbody'); tb.innerHTML='';
+  arr.forEach((r,i)=>{
+    const tr = document.createElement('tr');
+    const td1 = document.createElement('td'); td1.appendChild(txtInput(r[0], v=>{r[0]=v;}));
+    const td2 = document.createElement('td');
+    td2.appendChild(rowInput(r[1], v=>{r[1]=v;}));
+    td2.appendChild(delBtn(()=>{ arr.splice(i,1); renderSimpleTable(elId, arr); }));
+    tr.append(td1,td2); tb.appendChild(tr);
+  });
+}
+const TABLE_MAP = {stock:'stockTable', reserve:'reserveTable', taco:'tacoTable', nacho:'nachoTable', soda:'sodaTable'};
+function renderAllTables(){
+  renderEquip();
+  Object.entries(TABLE_MAP).forEach(([k,id])=>renderSimpleTable(id, S[k]));
+}
+
+/* ===== checklist ===== */
+function renderPlan(){
+  const c = $('checklist'); c.innerHTML='';
+  DEF.plan.forEach((p,i)=>{
+    const div = document.createElement('div');
+    div.className = 'check-item' + (S.planDone[i] ? ' done' : '');
+    const cb = document.createElement('input'); cb.type='checkbox'; cb.checked=S.planDone[i];
+    const txt = document.createElement('div'); txt.className='txt';
+    txt.innerHTML = '<b>'+(i+1)+'. '+p[0]+'</b><p>'+p[1]+'</p>';
+    div.append(cb,txt);
+    div.addEventListener('click',(e)=>{
+      if(e.target!==cb) cb.checked=!cb.checked;
+      S.planDone[i]=cb.checked; renderPlan(); saveS();
+    });
+    c.appendChild(div);
+  });
+  const done = S.planDone.filter(Boolean).length;
+  $('planBar').style.width = (done/DEF.plan.length*100)+'%';
+}
+
+/* ===== sales log ===== */
+function renderLog(){
+  const pr = S.prices;
+  const mg = { taco:pr.taco-sum(S.taco,1), nacho:pr.nacho-sum(S.nacho,1), soda:pr.soda-sum(S.soda,1) };
+  const fc = ['fcRent','fcUtil','fcOther','fcShip','fcTable'].reduce((a,k)=>a+(parseFloat($(k).value)||0),0);
+  const wage = parseFloat($('wage').value)||0;
+  const tb = $('logTable').querySelector('tbody'); tb.innerHTML='';
+  const logs = [...S.log].sort((a,b)=>String(b.d).localeCompare(String(a.d)));
+  let totRev=0, totNet=0, pass=0;
+  logs.forEach(e=>{
+    const rev = e.t*pr.taco + e.n*pr.nacho + e.s*pr.soda;
+    const net = e.t*mg.taco + e.n*mg.nacho + e.s*mg.soda - fc - wage;
+    totRev+=rev; totNet+=net; if(net>=0) pass++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>'+esc(e.d)+(e.note?'<div style="font-size:.72rem;color:var(--muted);white-space:normal;">'+esc(e.note)+'</div>':'')+'</td>'
+      +'<td>'+e.t+'</td><td>'+e.n+'</td><td>'+e.s+'</td><td>'+fmt(rev)+'</td>'
+      +'<td style="font-weight:700;color:'+(net>=0?'var(--green)':'var(--red)')+';">'+(net>=0?'+':'')+fmt(net)+'</td>';
+    const td = tr.lastElementChild;
+    td.appendChild(delBtn(()=>{ S.log = S.log.filter(x=>x!==e); }));
+    tb.appendChild(tr);
+  });
+  const c = logs.length;
+  $('lgDays').textContent = c;
+  $('lgAvgRev').textContent = c ? fmt(totRev/c) : '—';
+  $('lgAvgNet').textContent = c ? (totNet/c>=0?'+':'')+fmt(totNet/c) : '—';
+  $('lgAvgNet').style.color = c && totNet/c<0 ? 'var(--red)' : '';
+  $('lgPass').textContent = c ? pass+'/'+c+' วัน ('+Math.round(pass/c*100)+'%)' : '—';
+}
+
+/* ===== calculations ===== */
+function sum(arr, idx){ return arr.reduce((a,r)=>a+(parseFloat(r[idx])||0),0); }
+
+function calcAll(){
+  // investment
+  const equipT = S.equip.reduce((a,r,i)=>a+(S.equipOn[i]?(r[2]||0):0),0);
+  const stockT = sum(S.stock,1);
+  const reserveT = sum(S.reserve,1);
+  const grand = equipT + stockT + reserveT;
+  $('equipTotal').textContent = fmt(equipT)+' บาท';
+  $('stockTotal').textContent = fmt(stockT)+' บาท';
+  $('reserveTotal').textContent = fmt(reserveT)+' บาท';
+  $('grandTotal').textContent = fmt(grand)+' บาท';
+  $('grandNote').textContent = 'อุปกรณ์ '+fmt(equipT)+' + วัตถุดิบ '+fmt(stockT)+' + เงินสำรอง '+fmt(reserveT)+' — แนะนำเตรียมเผื่ออีก 10% กันเหตุไม่คาดฝัน (รวม ~'+fmt(Math.ceil(grand*1.1/100)*100)+' บาท)';
+
+  // menu costs
+  const vc = { taco:sum(S.taco,1), nacho:sum(S.nacho,1), soda:sum(S.soda,1) };
+  const pr = S.prices;
+  const mg = { taco:pr.taco-vc.taco, nacho:pr.nacho-vc.nacho, soda:pr.soda-vc.soda };
+  ['taco','nacho','soda'].forEach(k=>{
+    $(k+'VC').textContent = fmt(vc[k],1)+' บ.';
+    $(k+'Margin').textContent = fmt(mg[k],1)+' บ.';
+    $(k+'Margin').style.color = mg[k]>0?'var(--green)':'var(--red)';
+    const pct = pr[k]>0 ? vc[k]/pr[k]*100 : 0;
+    let html='';
+    if(pr[k]>0 && mg[k]<=0) html='<div class="alert bad">⛔ ต้นทุนสูงกว่าราคาขาย — ขาดทุนทุกหน่วย</div>';
+    else if(pct>40) html='<div class="alert warn">⚠️ ต้นทุน '+pct.toFixed(0)+'% ของราคาขาย — เกินเกณฑ์ 40%</div>';
+    else if(pr[k]>0) html='<div class="alert good">✅ ต้นทุน '+pct.toFixed(0)+'% — ผ่านเกณฑ์ 40%</div>';
+    $(k+'Alert').innerHTML = html;
+  });
+
+  // combos
+  const combos = [
+    ['เซ็ตเดี่ยว: ทาโก้ 1 + โซดา 1', pr.taco+pr.soda, Math.round((pr.taco+pr.soda)*0.9), vc.taco+vc.soda],
+    ['เซ็ตคู่: ทาโก้ 2 + โซดา 1', pr.taco*2+pr.soda, Math.round((pr.taco*2+pr.soda)*0.81), vc.taco*2+vc.soda],
+    ['เซ็ตแก๊ง: ทาโก้ 2 + นาโชส์ 1 + โซดา 2', pr.taco*2+pr.nacho+pr.soda*2, Math.round((pr.taco*2+pr.nacho+pr.soda*2)*0.885), vc.taco*2+vc.nacho+vc.soda*2],
+  ];
+  const ctb = $('comboTable').querySelector('tbody'); ctb.innerHTML='';
+  combos.forEach(c=>{
+    const setP = Math.round(c[2]/1)*1;
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>'+c[0]+'</td><td style="color:var(--muted);text-decoration:line-through;">'+fmt(c[1])+'</td><td style="font-weight:800;color:var(--accent);">'+fmt(setP)+' บ.</td><td style="color:var(--green);font-weight:700;">'+fmt(setP-c[3])+' บ.</td>';
+    ctb.appendChild(tr);
+  });
+
+  // fixed costs
+  const fc = ['fcRent','fcUtil','fcOther','fcShip','fcTable'].reduce((a,k)=>a+(parseFloat($(k).value)||0),0);
+  const wage = parseFloat($('wage').value)||0;
+  const days = Math.max(parseFloat($('days').value)||1,1);
+
+  // simulator
+  const n = { taco:+$('sTaco').value, nacho:+$('sNacho').value, soda:+$('sSoda').value };
+  $('nTaco').textContent=n.taco; $('nNacho').textContent=n.nacho; $('nSoda').textContent=n.soda;
+  const rev = n.taco*pr.taco + n.nacho*pr.nacho + n.soda*pr.soda;
+  const gross = n.taco*mg.taco + n.nacho*mg.nacho + n.soda*mg.soda;
+  const net = gross - fc - wage;
+  $('kRev').textContent = fmt(rev);
+  $('kGross').textContent = fmt(gross);
+  $('kNet').textContent = (net>=0?'+':'')+fmt(net);
+  $('kNet').style.color = net>=0?'var(--green)':'var(--red)';
+  $('kMonth').textContent = (net>=0?'+':'')+fmt(net*days);
+  $('kMonth').style.color = net>=0?'var(--green)':'var(--red)';
+  $('kMonthSub').textContent = days+' วันขาย/เดือน';
+  $('kPayback').textContent = (net>0 && grand>0) ? fmt(Math.ceil(grand/net))+' วันขาย' : (net<=0?'ไม่คืนทุน':'—');
+
+  const pill = $('statusPill');
+  if(net>=0){ pill.className='pill ok'; pill.textContent='✅ ผ่านเป้าจริง — ได้ค่าแรงครบ + กำไรเก็บ '+fmt(net)+' บ./วัน'; }
+  else if(gross>=fc){ pill.className='pill no'; pill.textContent='⚠️ เกินจุดเสมอตัวแต่ค่าแรงตัวเองยังไม่ครบ — ขาดอีก '+fmt(-net)+' บ./วัน'; }
+  else { pill.className='pill no'; pill.textContent='⛔ ยังไม่ถึงจุดเสมอตัว — ขาดทุน '+fmt(fc-gross+wage)+' บ./วัน (รวมค่าแรง)'; }
+
+  // break-even hint
+  let html='';
+  if(mg.taco>0){
+    const beTaco = Math.ceil((fc+wage)/mg.taco);
+    const beMix = Math.ceil((fc+wage - 20*mg.soda - 5*mg.nacho)/mg.taco);
+    html = '<div class="alert good">🎯 เป้าจริง (ต้นทุนคงที่ '+fmt(fc)+' + ค่าแรง '+fmt(wage)+' = '+fmt(fc+wage)+' บ./วัน):<br>· ขายทาโก้อย่างเดียว ต้อง '+fmt(beTaco)+' ชิ้น/วัน<br>· ถ้ามีโซดา 20 แก้ว + นาโชส์ 5 กล่องช่วย ทาโก้เหลือแค่ '+fmt(Math.max(beMix,0))+' ชิ้น/วัน — นี่คือพลังของเมนูเสริม</div>';
+  }
+  $('simAlerts').innerHTML = html;
+  renderLog();
+  saveS();
+}
+
+/* ===== wiring ===== */
+function wire(){
+  // tabs
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      $('page-'+t.dataset.page).classList.add('active');
+    });
+  });
+  // prices
+  [['tacoPrice','taco'],['nachoPrice','nacho'],['sodaPrice','soda']].forEach(([id,k])=>{
+    $(id).value = S.prices[k];
+    $(id).addEventListener('input',()=>{ S.prices[k]=parseFloat($(id).value)||0; calcAll(); });
+  });
+  // fixed
+  Object.entries(S.fixed).forEach(([k,v])=>{
+    $(k).value = v;
+    $(k).addEventListener('input',()=>{ S.fixed[k]=parseFloat($(k).value)||0; calcAll(); });
+  });
+  // sliders
+  Object.entries(S.sim).forEach(([k,v])=>{
+    $(k).value = v;
+    $(k).addEventListener('input',()=>{ S.sim[k]=+$(k).value; calcAll(); });
+  });
+  // add-row buttons
+  document.querySelectorAll('.addrow').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const k = b.dataset.add;
+      if(!k) return;
+      if(k==='equip'){
+        S.equip.push(['','',0]); S.equipOn.push(true); renderEquip();
+        const last = $('equipTable').querySelectorAll('tbody tr');
+        last[last.length-1].querySelector('input[type=text]').focus();
+      } else {
+        S[k].push(['',0]); renderSimpleTable(TABLE_MAP[k], S[k]);
+        const last = $(TABLE_MAP[k]).querySelectorAll('tbody tr');
+        last[last.length-1].querySelector('input[type=text]').focus();
+      }
+      calcAll(); saveS();
+    });
+  });
+  // sales log
+  $('logDate').value = new Date().toISOString().slice(0,10);
+  $('logAdd').addEventListener('click',()=>{
+    const t=+$('logTaco').value||0, n=+$('logNacho').value||0, s=+$('logSoda').value||0;
+    if(t+n+s===0){ alert('ใส่จำนวนที่ขายได้อย่างน้อย 1 ช่องก่อนครับ'); return; }
+    S.log.push({ d: $('logDate').value || new Date().toISOString().slice(0,10), t, n, s, note: $('logNote').value.trim() });
+    $('logTaco').value=$('logNacho').value=$('logSoda').value=$('logNote').value='';
+    renderLog(); saveS();
+  });
+  $('resetPlan').addEventListener('click',()=>{ S.planDone=DEF.plan.map(()=>false); renderPlan(); saveS(); });
+  $('resetAll').addEventListener('click',()=>{
+    if(confirm('ล้างทุกอย่างกลับเป็นค่าแนะนำ?')){
+      try{ localStorage.removeItem('taco-plan-v2'); }catch(e){}
+      location.reload();
+    }
+  });
+}
+
+loadS();
+renderAllTables();
+renderPlan();
+wire();
+calcAll();
+</script>
+</body>
+</html>
