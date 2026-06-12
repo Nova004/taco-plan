@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ป้ายราคา — ร้านทาโก้</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700;800;900&family=Sarabun:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#160d05; --cream:#fff6e6; --yellow:#ffc300; --orange:#ff8a2a;
+    --red:#d92f1e; --green:#6fbf3f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#0d0a05; display:flex; justify-content:center; padding:20px; font-family:'Kanit',sans-serif;}
+  .poster{
+    width:794px; min-height:1123px; position:relative; overflow:hidden;
+    background:var(--dark); border-radius:6px;
+    display:flex; flex-direction:column;
+  }
+  .hero{
+    position:relative; height:430px;
+    background:url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1200&auto=format&fit=crop') center 35%/cover no-repeat;
+  }
+  .hero::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(22,13,5,.25) 0%, rgba(22,13,5,0) 35%, rgba(22,13,5,.92) 88%, var(--dark) 100%);
+  }
+  .hero-text{
+    position:absolute; bottom:14px; left:0; right:0; text-align:center; z-index:2;
+  }
+  .brand{
+    font-size:96px; font-weight:900; line-height:1; letter-spacing:3px; color:var(--cream);
+    text-shadow:0 4px 0 var(--red), 0 9px 24px rgba(0,0,0,.8);
+  }
+  .tagline{
+    display:inline-block; margin-top:8px; background:var(--red); color:var(--cream);
+    font-size:21px; font-weight:700; padding:5px 28px; border-radius:99px;
+    transform:rotate(-1.2deg); box-shadow:0 4px 14px rgba(0,0,0,.5);
+  }
+  .menu{padding:24px 36px 6px;}
+  .menu-item{
+    display:flex; align-items:center; gap:18px;
+    background:rgba(255,246,230,.05);
+    border:1px solid rgba(255,195,0,.22);
+    border-radius:18px; padding:10px 22px 10px 12px; margin-bottom:12px;
+  }
+  .thumb{
+    width:96px; height:96px; border-radius:50%; flex-shrink:0;
+    border:4px solid var(--yellow); box-shadow:0 6px 16px rgba(0,0,0,.55);
+    background-size:cover; background-position:center;
+  }
+  .t-taco{background-image:url('https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?q=80&w=400&auto=format&fit=crop');}
+  .t-nacho{background-image:url('https://images.unsplash.com/photo-1582169296194-e4d644c48063?q=80&w=400&auto=format&fit=crop'); background-position:center 60%;}
+  .t-soda{background-image:url('https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?q=80&w=400&auto=format&fit=crop'); background-position:center 40%;}
+  .nm{flex:1;}
+  .nm b{display:block; font-size:31px; font-weight:800; color:var(--cream); line-height:1.15;}
+  .nm small{font-family:'Sarabun',sans-serif; font-size:15px; color:#d8b888; font-weight:600;}
+  .price-chip{
+    font-size:42px; font-weight:900; color:var(--dark);
+    background:linear-gradient(180deg,var(--yellow),var(--orange));
+    padding:1px 22px; border-radius:14px; box-shadow:0 5px 14px rgba(255,138,42,.35);
+    white-space:nowrap;
+  }
+  .price-chip small{font-size:18px; font-weight:700;}
+  .combo-head{text-align:center; margin:16px 0 18px;}
+  .combo-head span{
+    display:inline-block; background:var(--yellow); color:#4a2a00;
+    font-size:29px; font-weight:900; padding:7px 40px; border-radius:10px;
+    transform:rotate(.8deg); box-shadow:0 5px 0 #9a6a00; letter-spacing:1px;
+  }
+  .combos{display:flex; gap:14px; padding:0 36px;}
+  .combo{
+    flex:1; background:var(--cream); border-radius:18px;
+    padding:18px 12px 16px; text-align:center; position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+  }
+  .combo.hot{
+    background:linear-gradient(180deg,#fff1c9,#ffe1b0);
+    outline:4px solid var(--red); transform:scale(1.05); z-index:2;
+  }
+  .combo .badge{
+    position:absolute; top:-15px; left:50%; transform:translateX(-50%) rotate(-2deg);
+    background:var(--red); color:var(--cream); font-size:16px; font-weight:800;
+    padding:3px 18px; border-radius:99px; box-shadow:0 4px 10px rgba(0,0,0,.35); white-space:nowrap;
+  }
+  .combo h3{font-size:22px; font-weight:800; color:var(--red); margin-bottom:2px;}
+  .combo .items{font-family:'Sarabun',sans-serif; font-size:14.5px; color:#6b4a26; font-weight:600; min-height:42px; line-height:1.45;}
+  .combo .was{font-size:17px; color:#a98c64; text-decoration:line-through; font-weight:600;}
+  .combo .now{font-size:50px; font-weight:900; color:#33200d; line-height:1.05;}
+  .combo .now small{font-size:21px;}
+  .combo.hot .now{color:var(--red);}
+  .combo .save{
+    display:inline-block; margin-top:6px; background:var(--green); color:#fff;
+    font-size:14px; font-weight:800; padding:2px 14px; border-radius:99px;
+  }
+  footer{
+    margin-top:auto; padding:20px 36px 22px; display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(180deg, transparent, rgba(217,47,30,.16));
+  }
+  .pay{display:flex; align-items:center; gap:12px; font-size:20px; font-weight:700; color:var(--cream);}
+  .pay .qr{
+    width:66px; height:66px; border-radius:12px; background:var(--cream);
+    display:flex; align-items:center; justify-content:center; font-size:36px;
+    box-shadow:0 4px 12px rgba(0,0,0,.4);
+  }
+  .pay small{display:block; font-family:'Sarabun',sans-serif; font-size:13px; color:#d8b888; font-weight:600;}
+  .fresh{
+    text-align:right; font-size:19px; font-weight:700; color:var(--yellow); line-height:1.3;
+  }
+  .fresh small{display:block; font-family:'Sarabun',sans-serif; font-size:13px; color:#d8b888; font-weight:600;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .poster{width:100%; min-height:100vh; border-radius:0;}
+    @page{size:A4 portrait; margin:0;}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="brand">🌮 TACO!</div>
+      <div class="tagline">ทำสดใหม่ทีละชิ้น ไส้แน่นล้นคำ 🔥</div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="menu-item">
+      <div class="thumb t-taco"></div>
+      <div class="nm"><b>ทาโก้</b><small>แป้งนุ่มย่างหอม ๆ เนื้อหมักเข้มข้น ราดซัลซ่า + ชีสเต็ม ๆ</small></div>
+      <div class="price-chip">54<small> บ.</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="thumb t-nacho"></div>
+      <div class="nm"><b>นาโชส์ชีส</b><small>ชิปส์กรอบ ชีสซอสร้อน ๆ เยิ้มทุกคำ แชร์กันได้ทั้งแก๊ง</small></div>
+      <div class="price-chip">44<small> บ.</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="thumb t-soda"></div>
+      <div class="nm"><b>เลม่อนโซดา</b><small>เลม่อนแท้คั้นสด ซ่าเย็นเจี๊ยบ ดับเผ็ดได้อยู่หมัด</small></div>
+      <div class="price-chip">35<small> บ.</small></div>
+    </div>
+  </div>
+
+  <div class="combo-head"><span>🎁 จัดเซ็ต คุ้มกว่า!</span></div>
+
+  <div class="combos">
+    <div class="combo">
+      <h3>เซ็ตเดี่ยว</h3>
+      <div class="items">ทาโก้ 1 + โซดา 1</div>
+      <div class="was">89 บ.</div>
+      <div class="now">80<small> บ.</small></div>
+      <div class="save">ประหยัด 9 บ.</div>
+    </div>
+    <div class="combo">
+      <h3>เซ็ตคู่</h3>
+      <div class="items">ทาโก้ 2 + โซดา 1</div>
+      <div class="was">143 บ.</div>
+      <div class="now">116<small> บ.</small></div>
+      <div class="save">ประหยัด 27 บ.</div>
+    </div>
+    <div class="combo hot">
+      <div class="badge">⭐ คุ้มสุด!</div>
+      <h3>เซ็ตแก๊ง</h3>
+      <div class="items">ทาโก้ 2 + นาโชส์ 1<br>+ โซดา 2</div>
+      <div class="was">222 บ.</div>
+      <div class="now">196<small> บ.</small></div>
+      <div class="save">ประหยัด 26 บ.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="pay">
+      <div class="qr">📱</div>
+      <div>รับพร้อมเพย์<small>สแกนจ่ายได้เลย ไม่ต้องพกเงินสด</small></div>
+    </div>
+    <div class="fresh">🌶️ เผ็ดได้ใจ สดได้อีก<small>ปรุงต่อหน้า เห็นทุกขั้นตอน</small></div>
+  </footer>
+
+</div>
+</body>
+</html>
