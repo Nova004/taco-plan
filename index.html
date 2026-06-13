@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แผนธุรกิจร้านทาโก้ — ตลาดนัด</title>
-<!-- เมนู: ทาโก้ / นาโชส์ชีส / เลม่อนโซดา -->
+<title>à¹à¸à¸à¸à¸¸à¸£à¸à¸´à¸à¸£à¹à¸²à¸à¸à¸²à¹à¸à¹ â à¸à¸¥à¸²à¸à¸à¸±à¸</title>
+<!-- à¹à¸¡à¸à¸¹: à¸à¸²à¹à¸à¹ / à¸à¸²à¹à¸à¸ªà¹à¸à¸µà¸ª / à¹à¸¥à¸¡à¹à¸­à¸à¹à¸à¸à¸² -->
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -98,51 +98,51 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>🌮 แผนธุรกิจร้านทาโก้ <span>ตลาดนัด</span></h1>
-    <p>ทาโก้ · นาโชส์ชีส · เลม่อนโซดา — แก้ตัวเลขได้ทุกช่อง ระบบคำนวณและบันทึกอัตโนมัติ</p>
+    <h1>ð® à¹à¸à¸à¸à¸¸à¸£à¸à¸´à¸à¸£à¹à¸²à¸à¸à¸²à¹à¸à¹ <span>à¸à¸¥à¸²à¸à¸à¸±à¸</span></h1>
+    <p>à¸à¸²à¹à¸à¹ Â· à¸à¸²à¹à¸à¸ªà¹à¸à¸µà¸ª Â· à¹à¸¥à¸¡à¹à¸­à¸à¹à¸à¸à¸² â à¹à¸à¹à¸à¸±à¸§à¹à¸¥à¸à¹à¸à¹à¸à¸¸à¸à¸à¹à¸­à¸ à¸£à¸°à¸à¸à¸à¸³à¸à¸§à¸à¹à¸¥à¸°à¸à¸±à¸à¸à¸¶à¸à¸­à¸±à¸à¹à¸à¸¡à¸±à¸à¸´</p>
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-page="invest">💼 งบลงทุน & อุปกรณ์</button>
-    <button class="tab" data-page="cost">🌮 ต้นทุนเมนู & ราคาขาย</button>
-    <button class="tab" data-page="sim">📊 จุดคุ้มทุน & จำลองยอดขาย</button>
-    <button class="tab" data-page="log">📒 บันทึกยอดขาย</button>
-    <button class="tab" data-page="plan">✅ แผนลงมือ</button>
+    <button class="tab active" data-page="invest">ð¼ à¸à¸à¸¥à¸à¸à¸¸à¸ & à¸­à¸¸à¸à¸à¸£à¸à¹</button>
+    <button class="tab" data-page="cost">ð® à¸à¹à¸à¸à¸¸à¸à¹à¸¡à¸à¸¹ & à¸£à¸²à¸à¸²à¸à¸²à¸¢</button>
+    <button class="tab" data-page="sim">ð à¸à¸¸à¸à¸à¸¸à¹à¸¡à¸à¸¸à¸ & à¸à¸³à¸¥à¸­à¸à¸¢à¸­à¸à¸à¸²à¸¢</button>
+    <button class="tab" data-page="log">ð à¸à¸±à¸à¸à¸¶à¸à¸¢à¸­à¸à¸à¸²à¸¢</button>
+    <button class="tab" data-page="plan">â à¹à¸à¸à¸¥à¸à¸¡à¸·à¸­</button>
   </div>
 
   <!-- ======== PAGE 1: INVESTMENT ======== -->
   <div class="page active" id="page-invest">
     <div class="card">
-      <h2>🧱 อุปกรณ์เปิดร้าน (ต้นทุนจม) <span class="badge">ติ๊กออกได้ถ้ามีอยู่แล้ว/ยืมได้</span></h2>
+      <h2>ð§± à¸­à¸¸à¸à¸à¸£à¸à¹à¹à¸à¸´à¸à¸£à¹à¸²à¸ (à¸à¹à¸à¸à¸¸à¸à¸à¸¡) <span class="badge">à¸à¸´à¹à¸à¸­à¸­à¸à¹à¸à¹à¸à¹à¸²à¸¡à¸µà¸­à¸¢à¸¹à¹à¹à¸¥à¹à¸§/à¸¢à¸·à¸¡à¹à¸à¹</span></h2>
       <table id="equipTable">
-        <thead><tr><th style="width:34px;">ซื้อ</th><th>รายการ</th><th>หมายเหตุ</th><th>ราคา (บ.)</th></tr></thead>
+        <thead><tr><th style="width:34px;">à¸à¸·à¹à¸­</th><th>à¸£à¸²à¸¢à¸à¸²à¸£</th><th>à¸«à¸¡à¸²à¸¢à¹à¸«à¸à¸¸</th><th>à¸£à¸²à¸à¸² (à¸.)</th></tr></thead>
         <tbody></tbody>
       </table>
-      <button class="addrow" data-add="equip">+ เพิ่มอุปกรณ์</button>
-      <div class="total-row"><span>รวมค่าอุปกรณ์</span><span id="equipTotal">0 บาท</span></div>
-      <p class="note">💡 เคล็ดลับ: เต็นท์ โต๊ะ คูลเลอร์ หาซื้อมือสองได้ ลดงบลงได้ 30–40% — อย่าซื้อของสวยเกินจำเป็นก่อนพิสูจน์ว่าขายได้</p>
+      <button class="addrow" data-add="equip">+ à¹à¸à¸´à¹à¸¡à¸­à¸¸à¸à¸à¸£à¸à¹</button>
+      <div class="total-row"><span>à¸£à¸§à¸¡à¸à¹à¸²à¸­à¸¸à¸à¸à¸£à¸à¹</span><span id="equipTotal">0 à¸à¸²à¸</span></div>
+      <p class="note">ð¡ à¹à¸à¸¥à¹à¸à¸¥à¸±à¸: à¹à¸à¹à¸à¸à¹ à¹à¸à¹à¸° à¸à¸¹à¸¥à¹à¸¥à¸­à¸£à¹ à¸«à¸²à¸à¸·à¹à¸­à¸¡à¸·à¸­à¸ªà¸­à¸à¹à¸à¹ à¸¥à¸à¸à¸à¸¥à¸à¹à¸à¹ 30â40% â à¸­à¸¢à¹à¸²à¸à¸·à¹à¸­à¸à¸­à¸à¸ªà¸§à¸¢à¹à¸à¸´à¸à¸à¸³à¹à¸à¹à¸à¸à¹à¸­à¸à¸à¸´à¸ªà¸¹à¸à¸à¹à¸§à¹à¸²à¸à¸²à¸¢à¹à¸à¹</p>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h2>🛒 วัตถุดิบล็อตแรก <span class="badge">สต็อก 2–3 วันขาย</span></h2>
+        <h2>ð à¸§à¸±à¸à¸à¸¸à¸à¸´à¸à¸¥à¹à¸­à¸à¹à¸£à¸ <span class="badge">à¸ªà¸à¹à¸­à¸ 2â3 à¸§à¸±à¸à¸à¸²à¸¢</span></h2>
         <table id="stockTable"><tbody></tbody></table>
-        <button class="addrow" data-add="stock">+ เพิ่มวัตถุดิบ</button>
-        <div class="total-row"><span>รวมวัตถุดิบล็อตแรก</span><span id="stockTotal">0 บาท</span></div>
-        <p class="note">⚠️ ตอติญ่ากับชีสมีอายุจำกัด — สั่งแค่พอ 2–3 วันขาย อย่าเหมาเยอะตอนเริ่ม</p>
+        <button class="addrow" data-add="stock">+ à¹à¸à¸´à¹à¸¡à¸§à¸±à¸à¸à¸¸à¸à¸´à¸</button>
+        <div class="total-row"><span>à¸£à¸§à¸¡à¸§à¸±à¸à¸à¸¸à¸à¸´à¸à¸¥à¹à¸­à¸à¹à¸£à¸</span><span id="stockTotal">0 à¸à¸²à¸</span></div>
+        <p class="note">â ï¸ à¸à¸­à¸à¸´à¸à¹à¸²à¸à¸±à¸à¸à¸µà¸ªà¸¡à¸µà¸­à¸²à¸¢à¸¸à¸à¸³à¸à¸±à¸ â à¸ªà¸±à¹à¸à¹à¸à¹à¸à¸­ 2â3 à¸§à¸±à¸à¸à¸²à¸¢ à¸­à¸¢à¹à¸²à¹à¸«à¸¡à¸²à¹à¸¢à¸­à¸°à¸à¸­à¸à¹à¸£à¸´à¹à¸¡</p>
       </div>
       <div class="card">
-        <h2>💵 เงินสำรอง & ค่าใช้จ่ายเริ่มต้น</h2>
+        <h2>ðµ à¹à¸à¸´à¸à¸ªà¸³à¸£à¸­à¸ & à¸à¹à¸²à¹à¸à¹à¸à¹à¸²à¸¢à¹à¸£à¸´à¹à¸¡à¸à¹à¸</h2>
         <table id="reserveTable"><tbody></tbody></table>
-        <button class="addrow" data-add="reserve">+ เพิ่มรายการ</button>
-        <div class="total-row"><span>รวมเงินสำรอง</span><span id="reserveTotal">0 บาท</span></div>
-        <p class="note">💡 เงินสำรองคือเส้นเลือดของร้าน — อย่าเอาไปซื้ออุปกรณ์เพิ่มเด็ดขาด</p>
+        <button class="addrow" data-add="reserve">+ à¹à¸à¸´à¹à¸¡à¸£à¸²à¸¢à¸à¸²à¸£</button>
+        <div class="total-row"><span>à¸£à¸§à¸¡à¹à¸à¸´à¸à¸ªà¸³à¸£à¸­à¸</span><span id="reserveTotal">0 à¸à¸²à¸</span></div>
+        <p class="note">ð¡ à¹à¸à¸´à¸à¸ªà¸³à¸£à¸­à¸à¸à¸·à¸­à¹à¸ªà¹à¸à¹à¸¥à¸·à¸­à¸à¸à¸­à¸à¸£à¹à¸²à¸ â à¸­à¸¢à¹à¸²à¹à¸­à¸²à¹à¸à¸à¸·à¹à¸­à¸­à¸¸à¸à¸à¸£à¸à¹à¹à¸à¸´à¹à¸¡à¹à¸à¹à¸à¸à¸²à¸</p>
       </div>
     </div>
 
     <div class="card grand">
-      <h2>💰 งบลงทุนรวมทั้งหมด</h2>
-      <div class="total-row" style="font-size:1.25rem;"><span>เงินที่ต้องเตรียม</span><span id="grandTotal">0 บาท</span></div>
+      <h2>ð° à¸à¸à¸¥à¸à¸à¸¸à¸à¸£à¸§à¸¡à¸à¸±à¹à¸à¸«à¸¡à¸</h2>
+      <div class="total-row" style="font-size:1.25rem;"><span>à¹à¸à¸´à¸à¸à¸µà¹à¸à¹à¸­à¸à¹à¸à¸£à¸µà¸¢à¸¡</span><span id="grandTotal">0 à¸à¸²à¸</span></div>
       <p class="note" id="grandNote"></p>
     </div>
   </div>
@@ -151,42 +151,42 @@
   <div class="page" id="page-cost">
     <div class="grid">
       <div class="card">
-        <h2>🌮 ทาโก้ <span class="badge">ต่อชิ้น</span></h2>
+        <h2>ð® à¸à¸²à¹à¸à¹ <span class="badge">à¸à¹à¸­à¸à¸´à¹à¸</span></h2>
         <table id="tacoTable"><tbody></tbody></table>
-        <button class="addrow" data-add="taco">+ เพิ่มส่วนประกอบ</button>
-        <div class="total-row"><span>ต้นทุน/ชิ้น</span><span id="tacoVC">0</span></div>
-        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
-          <div class="inrow"><input type="number" id="tacoPrice" min="0"><span class="unit">บาท</span></div></div>
-        <div class="total-row"><span>กำไรขั้นต้น/ชิ้น</span><span id="tacoMargin">0</span></div>
+        <button class="addrow" data-add="taco">+ à¹à¸à¸´à¹à¸¡à¸ªà¹à¸§à¸à¸à¸£à¸°à¸à¸­à¸</button>
+        <div class="total-row"><span>à¸à¹à¸à¸à¸¸à¸/à¸à¸´à¹à¸</span><span id="tacoVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>à¸£à¸²à¸à¸²à¸à¸²à¸¢</label>
+          <div class="inrow"><input type="number" id="tacoPrice" min="0"><span class="unit">à¸à¸²à¸</span></div></div>
+        <div class="total-row"><span>à¸à¸³à¹à¸£à¸à¸±à¹à¸à¸à¹à¸/à¸à¸´à¹à¸</span><span id="tacoMargin">0</span></div>
         <div id="tacoAlert"></div>
       </div>
       <div class="card">
-        <h2>🧀 นาโชส์ชีส <span class="badge">ต่อกล่อง</span></h2>
+        <h2>ð§ à¸à¸²à¹à¸à¸ªà¹à¸à¸µà¸ª <span class="badge">à¸à¹à¸­à¸à¸¥à¹à¸­à¸</span></h2>
         <table id="nachoTable"><tbody></tbody></table>
-        <button class="addrow" data-add="nacho">+ เพิ่มส่วนประกอบ</button>
-        <div class="total-row"><span>ต้นทุน/กล่อง</span><span id="nachoVC">0</span></div>
-        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
-          <div class="inrow"><input type="number" id="nachoPrice" min="0"><span class="unit">บาท</span></div></div>
-        <div class="total-row"><span>กำไรขั้นต้น/กล่อง</span><span id="nachoMargin">0</span></div>
+        <button class="addrow" data-add="nacho">+ à¹à¸à¸´à¹à¸¡à¸ªà¹à¸§à¸à¸à¸£à¸°à¸à¸­à¸</button>
+        <div class="total-row"><span>à¸à¹à¸à¸à¸¸à¸/à¸à¸¥à¹à¸­à¸</span><span id="nachoVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>à¸£à¸²à¸à¸²à¸à¸²à¸¢</label>
+          <div class="inrow"><input type="number" id="nachoPrice" min="0"><span class="unit">à¸à¸²à¸</span></div></div>
+        <div class="total-row"><span>à¸à¸³à¹à¸£à¸à¸±à¹à¸à¸à¹à¸/à¸à¸¥à¹à¸­à¸</span><span id="nachoMargin">0</span></div>
         <div id="nachoAlert"></div>
       </div>
       <div class="card">
-        <h2>🍋 เลม่อนโซดา <span class="badge">ต่อแก้ว</span></h2>
+        <h2>ð à¹à¸¥à¸¡à¹à¸­à¸à¹à¸à¸à¸² <span class="badge">à¸à¹à¸­à¹à¸à¹à¸§</span></h2>
         <table id="sodaTable"><tbody></tbody></table>
-        <button class="addrow" data-add="soda">+ เพิ่มส่วนประกอบ</button>
-        <div class="total-row"><span>ต้นทุน/แก้ว</span><span id="sodaVC">0</span></div>
-        <div class="field" style="margin-top:12px;"><label>ราคาขาย</label>
-          <div class="inrow"><input type="number" id="sodaPrice" min="0"><span class="unit">บาท</span></div></div>
-        <div class="total-row"><span>กำไรขั้นต้น/แก้ว</span><span id="sodaMargin">0</span></div>
+        <button class="addrow" data-add="soda">+ à¹à¸à¸´à¹à¸¡à¸ªà¹à¸§à¸à¸à¸£à¸°à¸à¸­à¸</button>
+        <div class="total-row"><span>à¸à¹à¸à¸à¸¸à¸/à¹à¸à¹à¸§</span><span id="sodaVC">0</span></div>
+        <div class="field" style="margin-top:12px;"><label>à¸£à¸²à¸à¸²à¸à¸²à¸¢</label>
+          <div class="inrow"><input type="number" id="sodaPrice" min="0"><span class="unit">à¸à¸²à¸</span></div></div>
+        <div class="total-row"><span>à¸à¸³à¹à¸£à¸à¸±à¹à¸à¸à¹à¸/à¹à¸à¹à¸§</span><span id="sodaMargin">0</span></div>
         <div id="sodaAlert"></div>
       </div>
       <div class="card">
-        <h2>🎁 เซ็ตคอมโบแนะนำ <span class="badge">คำนวณจากราคาด้านซ้าย</span></h2>
+        <h2>ð à¹à¸à¹à¸à¸à¸­à¸¡à¹à¸à¹à¸à¸°à¸à¸³ <span class="badge">à¸à¸³à¸à¸§à¸à¸à¸²à¸à¸£à¸²à¸à¸²à¸à¹à¸²à¸à¸à¹à¸²à¸¢</span></h2>
         <table id="comboTable">
-          <thead><tr><th>เซ็ต</th><th>ราคาเต็ม</th><th>ขายเซ็ต</th><th>กำไร/เซ็ต</th></tr></thead>
+          <thead><tr><th>à¹à¸à¹à¸</th><th>à¸£à¸²à¸à¸²à¹à¸à¹à¸¡</th><th>à¸à¸²à¸¢à¹à¸à¹à¸</th><th>à¸à¸³à¹à¸£/à¹à¸à¹à¸</th></tr></thead>
           <tbody></tbody>
         </table>
-        <p class="note">💡 เซ็ตคู่ + เซ็ตแก๊ง คือตัวดันยอดต่อบิล — เชียร์ลูกค้ากลุ่มให้จบที่เซ็ตแก๊งเสมอ</p>
+        <p class="note">ð¡ à¹à¸à¹à¸à¸à¸¹à¹ + à¹à¸à¹à¸à¹à¸à¹à¸ à¸à¸·à¸­à¸à¸±à¸§à¸à¸±à¸à¸¢à¸­à¸à¸à¹à¸­à¸à¸´à¸¥ â à¹à¸à¸µà¸¢à¸£à¹à¸¥à¸¹à¸à¸à¹à¸²à¸à¸¥à¸¸à¹à¸¡à¹à¸«à¹à¸à¸à¸à¸µà¹à¹à¸à¹à¸à¹à¸à¹à¸à¹à¸ªà¸¡à¸­</p>
       </div>
     </div>
   </div>
@@ -194,39 +194,39 @@
   <!-- ======== PAGE 3: SIMULATOR ======== -->
   <div class="page" id="page-sim">
     <div class="card">
-      <h2>📅 ต้นทุนคงที่ & ค่าแรง <span class="badge">ต่อวัน</span></h2>
+      <h2>ð à¸à¹à¸à¸à¸¸à¸à¸à¸à¸à¸µà¹ & à¸à¹à¸²à¹à¸£à¸ <span class="badge">à¸à¹à¸­à¸§à¸±à¸</span></h2>
       <div class="grid" style="gap:10px;">
         <div>
-          <div class="field"><label>ค่าที่/ค่าล็อก</label><div class="inrow"><input type="number" id="fcRent" min="0"><span class="unit">บ./วัน</span></div></div>
-          <div class="field"><label>ค่าน้ำ-ไฟ</label><div class="inrow"><input type="number" id="fcUtil" min="0"><span class="unit">บ./วัน</span></div></div>
-          <div class="field"><label>ค่าเดินทาง/น้ำแข็ง/แก๊ส</label><div class="inrow"><input type="number" id="fcOther" min="0"><span class="unit">บ./วัน</span></div></div>
+          <div class="field"><label>à¸à¹à¸²à¸à¸µà¹/à¸à¹à¸²à¸¥à¹à¸­à¸</label><div class="inrow"><input type="number" id="fcRent" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
+          <div class="field"><label>à¸à¹à¸²à¸à¹à¸³-à¹à¸</label><div class="inrow"><input type="number" id="fcUtil" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
+          <div class="field"><label>à¸à¹à¸²à¹à¸à¸´à¸à¸à¸²à¸/à¸à¹à¸³à¹à¸à¹à¸/à¹à¸à¹à¸ª</label><div class="inrow"><input type="number" id="fcOther" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
         </div>
         <div>
-          <div class="field"><label>🚚 ค่าขนส่ง (Grab/วิน ไป-กลับ)</label><div class="inrow"><input type="number" id="fcShip" min="0"><span class="unit">บ./วัน</span></div></div>
-          <div class="field"><label>ค่าเช่าโต๊ะ/เต็นท์จากตลาด (ถ้ามี)</label><div class="inrow"><input type="number" id="fcTable" min="0"><span class="unit">บ./วัน</span></div></div>
-          <div class="field"><label>ค่าแรงตัวเอง (อย่าลืม!)</label><div class="inrow"><input type="number" id="wage" min="0"><span class="unit">บ./วัน</span></div></div>
-          <div class="field"><label>วันขายต่อเดือน (แนะนำ 20–22)</label><div class="inrow"><input type="number" id="days" min="1" max="31"><span class="unit">วัน</span></div></div>
+          <div class="field"><label>ð à¸à¹à¸²à¸à¸à¸ªà¹à¸ (Grab/à¸§à¸´à¸ à¹à¸-à¸à¸¥à¸±à¸)</label><div class="inrow"><input type="number" id="fcShip" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
+          <div class="field"><label>à¸à¹à¸²à¹à¸à¹à¸²à¹à¸à¹à¸°/à¹à¸à¹à¸à¸à¹à¸à¸²à¸à¸à¸¥à¸²à¸ (à¸à¹à¸²à¸¡à¸µ)</label><div class="inrow"><input type="number" id="fcTable" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
+          <div class="field"><label>à¸à¹à¸²à¹à¸£à¸à¸à¸±à¸§à¹à¸­à¸ (à¸­à¸¢à¹à¸²à¸¥à¸·à¸¡!)</label><div class="inrow"><input type="number" id="wage" min="0"><span class="unit">à¸./à¸§à¸±à¸</span></div></div>
+          <div class="field"><label>à¸§à¸±à¸à¸à¸²à¸¢à¸à¹à¸­à¹à¸à¸·à¸­à¸ (à¹à¸à¸°à¸à¸³ 20â22)</label><div class="inrow"><input type="number" id="days" min="1" max="31"><span class="unit">à¸§à¸±à¸</span></div></div>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <h2>🎯 จำลองยอดขายต่อวัน <span class="badge">ลากเลื่อนดูผล</span></h2>
-      <div class="slider-block"><div class="row"><span>🌮 ทาโก้</span><span><span id="nTaco">0</span> ชิ้น</span></div>
-        <input type="range" id="sTaco" min="0" max="100" value="30"></div>
-      <div class="slider-block"><div class="row"><span>🧀 นาโชส์ชีส</span><span><span id="nNacho">0</span> กล่อง</span></div>
-        <input type="range" id="sNacho" min="0" max="50" value="8"></div>
-      <div class="slider-block"><div class="row"><span>🍋 เลม่อนโซดา</span><span><span id="nSoda">0</span> แก้ว</span></div>
-        <input type="range" id="sSoda" min="0" max="80" value="20"></div>
-      <div style="text-align:center; margin-top:6px;"><span class="pill" id="statusPill">—</span></div>
+      <h2>ð¯ à¸à¸³à¸¥à¸­à¸à¸¢à¸­à¸à¸à¸²à¸¢à¸à¹à¸­à¸§à¸±à¸ <span class="badge">à¸¥à¸²à¸à¹à¸¥à¸·à¹à¸­à¸à¸à¸¹à¸à¸¥</span></h2>
+      <div class="slider-block"><div class="row"><span>ð® à¸à¸²à¹à¸à¹</span><span><span id="nTaco">0</span> à¸à¸´à¹à¸</span></div>
+        <input type="range" id="sTaco" min="0" max="100" value="40"></div>
+      <div class="slider-block"><div class="row"><span>ð§ à¸à¸²à¹à¸à¸ªà¹à¸à¸µà¸ª</span><span><span id="nNacho">0</span> à¸à¸¥à¹à¸­à¸</span></div>
+        <input type="range" id="sNacho" min="0" max="50" value="20"></div>
+      <div class="slider-block"><div class="row"><span>ð à¹à¸¥à¸¡à¹à¸­à¸à¹à¸à¸à¸²</span><span><span id="nSoda">0</span> à¹à¸à¹à¸§</span></div>
+        <input type="range" id="sSoda" min="0" max="80" value="30"></div>
+      <div style="text-align:center; margin-top:6px;"><span class="pill" id="statusPill">â</span></div>
     </div>
 
     <div class="kpis">
-      <div class="kpi blue"><div class="t">ยอดขาย/วัน</div><div class="v" id="kRev">—</div><div class="s">บาท</div></div>
-      <div class="kpi amber"><div class="t">กำไรขั้นต้น/วัน</div><div class="v" id="kGross">—</div><div class="s">ก่อนหักต้นทุนคงที่+ค่าแรง</div></div>
-      <div class="kpi green"><div class="t">กำไรสุทธิ/วัน</div><div class="v" id="kNet">—</div><div class="s">หักค่าแรงตัวเองแล้ว</div></div>
-      <div class="kpi green"><div class="t">กำไรสุทธิ/เดือน</div><div class="v" id="kMonth">—</div><div class="s" id="kMonthSub">—</div></div>
-      <div class="kpi blue"><div class="t">คืนทุนอุปกรณ์ภายใน</div><div class="v" id="kPayback">—</div><div class="s">จากงบลงทุนหน้าแรก</div></div>
+      <div class="kpi blue"><div class="t">à¸¢à¸­à¸à¸à¸²à¸¢/à¸§à¸±à¸</div><div class="v" id="kRev">â</div><div class="s">à¸à¸²à¸</div></div>
+      <div class="kpi amber"><div class="t">à¸à¸³à¹à¸£à¸à¸±à¹à¸à¸à¹à¸/à¸§à¸±à¸</div><div class="v" id="kGross">â</div><div class="s">à¸à¹à¸­à¸à¸«à¸±à¸à¸à¹à¸à¸à¸¸à¸à¸à¸à¸à¸µà¹+à¸à¹à¸²à¹à¸£à¸</div></div>
+      <div class="kpi green"><div class="t">à¸à¸³à¹à¸£à¸ªà¸¸à¸à¸à¸´/à¸§à¸±à¸</div><div class="v" id="kNet">â</div><div class="s">à¸«à¸±à¸à¸à¹à¸²à¹à¸£à¸à¸à¸±à¸§à¹à¸­à¸à¹à¸¥à¹à¸§</div></div>
+      <div class="kpi green"><div class="t">à¸à¸³à¹à¸£à¸ªà¸¸à¸à¸à¸´/à¹à¸à¸·à¸­à¸</div><div class="v" id="kMonth">â</div><div class="s" id="kMonthSub">â</div></div>
+      <div class="kpi blue"><div class="t">à¸à¸·à¸à¸à¸¸à¸à¸­à¸¸à¸à¸à¸£à¸à¹à¸ à¸²à¸¢à¹à¸</div><div class="v" id="kPayback">â</div><div class="s">à¸à¸²à¸à¸à¸à¸¥à¸à¸à¸¸à¸à¸«à¸à¹à¸²à¹à¸£à¸</div></div>
     </div>
     <div id="simAlerts"></div>
   </div>
@@ -234,91 +234,91 @@
   <!-- ======== PAGE: SALES LOG ======== -->
   <div class="page" id="page-log">
     <div class="card">
-      <h2>📒 บันทึกยอดขายหลังปิดร้าน <span class="badge">จดทุกวันที่ขาย</span></h2>
+      <h2>ð à¸à¸±à¸à¸à¸¶à¸à¸¢à¸­à¸à¸à¸²à¸¢à¸«à¸¥à¸±à¸à¸à¸´à¸à¸£à¹à¸²à¸ <span class="badge">à¸à¸à¸à¸¸à¸à¸§à¸±à¸à¸à¸µà¹à¸à¸²à¸¢</span></h2>
       <div class="loggrid">
-        <div class="field"><label>วันที่</label><input type="date" id="logDate"></div>
-        <div class="field"><label>🌮 ทาโก้ (ชิ้น)</label><input type="number" id="logTaco" min="0" placeholder="0"></div>
-        <div class="field"><label>🧀 นาโชส์ (กล่อง)</label><input type="number" id="logNacho" min="0" placeholder="0"></div>
-        <div class="field"><label>🍋 โซดา (แก้ว)</label><input type="number" id="logSoda" min="0" placeholder="0"></div>
-        <div class="field" style="grid-column:1/-1;"><label>หมายเหตุ (อากาศ / อีเวนต์ / สิ่งที่เรียนรู้วันนี้)</label><input type="text" id="logNote" placeholder="เช่น ฝนตกช่วง 1 ทุ่ม คนหาย · เซ็ตแก๊งขายดีมาก"></div>
+        <div class="field"><label>à¸§à¸±à¸à¸à¸µà¹</label><input type="date" id="logDate"></div>
+        <div class="field"><label>ð® à¸à¸²à¹à¸à¹ (à¸à¸´à¹à¸)</label><input type="number" id="logTaco" min="0" placeholder="0"></div>
+        <div class="field"><label>ð§ à¸à¸²à¹à¸à¸ªà¹ (à¸à¸¥à¹à¸­à¸)</label><input type="number" id="logNacho" min="0" placeholder="0"></div>
+        <div class="field"><label>ð à¹à¸à¸à¸² (à¹à¸à¹à¸§)</label><input type="number" id="logSoda" min="0" placeholder="0"></div>
+        <div class="field" style="grid-column:1/-1;"><label>à¸«à¸¡à¸²à¸¢à¹à¸«à¸à¸¸ (à¸­à¸²à¸à¸²à¸¨ / à¸­à¸µà¹à¸§à¸à¸à¹ / à¸ªà¸´à¹à¸à¸à¸µà¹à¹à¸£à¸µà¸¢à¸à¸£à¸¹à¹à¸§à¸±à¸à¸à¸µà¹)</label><input type="text" id="logNote" placeholder="à¹à¸à¹à¸ à¸à¸à¸à¸à¸à¹à¸§à¸ 1 à¸à¸¸à¹à¸¡ à¸à¸à¸«à¸²à¸¢ Â· à¹à¸à¹à¸à¹à¸à¹à¸à¸à¸²à¸¢à¸à¸µà¸¡à¸²à¸"></div>
       </div>
-      <button class="addrow" id="logAdd" style="border-style:solid; border-color:var(--accent); color:var(--accent);">+ บันทึกยอดวันนี้</button>
+      <button class="addrow" id="logAdd" style="border-style:solid; border-color:var(--accent); color:var(--accent);">+ à¸à¸±à¸à¸à¸¶à¸à¸¢à¸­à¸à¸§à¸±à¸à¸à¸µà¹</button>
     </div>
     <div class="kpis">
-      <div class="kpi blue"><div class="t">บันทึกแล้ว</div><div class="v" id="lgDays">0</div><div class="s">วันขาย</div></div>
-      <div class="kpi amber"><div class="t">ยอดขายเฉลี่ย/วัน</div><div class="v" id="lgAvgRev">—</div><div class="s">บาท</div></div>
-      <div class="kpi green"><div class="t">กำไรสุทธิเฉลี่ย/วัน</div><div class="v" id="lgAvgNet">—</div><div class="s">หักค่าแรงตัวเองแล้ว</div></div>
-      <div class="kpi green"><div class="t">วันที่ผ่านเป้าจริง</div><div class="v" id="lgPass">—</div><div class="s">เกณฑ์ตัดจบ: 6–8 สัปดาห์ต้องผ่าน ≥70%</div></div>
+      <div class="kpi blue"><div class="t">à¸à¸±à¸à¸à¸¶à¸à¹à¸¥à¹à¸§</div><div class="v" id="lgDays">0</div><div class="s">à¸§à¸±à¸à¸à¸²à¸¢</div></div>
+      <div class="kpi amber"><div class="t">à¸¢à¸­à¸à¸à¸²à¸¢à¹à¸à¸¥à¸µà¹à¸¢/à¸§à¸±à¸</div><div class="v" id="lgAvgRev">â</div><div class="s">à¸à¸²à¸</div></div>
+      <div class="kpi green"><div class="t">à¸à¸³à¹à¸£à¸ªà¸¸à¸à¸à¸´à¹à¸à¸¥à¸µà¹à¸¢/à¸§à¸±à¸</div><div class="v" id="lgAvgNet">â</div><div class="s">à¸«à¸±à¸à¸à¹à¸²à¹à¸£à¸à¸à¸±à¸§à¹à¸­à¸à¹à¸¥à¹à¸§</div></div>
+      <div class="kpi green"><div class="t">à¸§à¸±à¸à¸à¸µà¹à¸à¹à¸²à¸à¹à¸à¹à¸²à¸à¸£à¸´à¸</div><div class="v" id="lgPass">â</div><div class="s">à¹à¸à¸à¸à¹à¸à¸±à¸à¸à¸: 6â8 à¸ªà¸±à¸à¸à¸²à¸«à¹à¸à¹à¸­à¸à¸à¹à¸²à¸ â¥70%</div></div>
     </div>
     <div class="card">
-      <h2>ประวัติการขาย <span class="badge">กำไรคำนวณจากราคา/ต้นทุนปัจจุบัน</span></h2>
+      <h2>à¸à¸£à¸°à¸§à¸±à¸à¸´à¸à¸²à¸£à¸à¸²à¸¢ <span class="badge">à¸à¸³à¹à¸£à¸à¸³à¸à¸§à¸à¸à¸²à¸à¸£à¸²à¸à¸²/à¸à¹à¸à¸à¸¸à¸à¸à¸±à¸à¸à¸¸à¸à¸±à¸</span></h2>
       <table id="logTable">
-        <thead><tr><th>วันที่</th><th>🌮</th><th>🧀</th><th>🍋</th><th>ยอดขาย</th><th>กำไรสุทธิ</th></tr></thead>
+        <thead><tr><th>à¸§à¸±à¸à¸à¸µà¹</th><th>ð®</th><th>ð§</th><th>ð</th><th>à¸¢à¸­à¸à¸à¸²à¸¢</th><th>à¸à¸³à¹à¸£à¸ªà¸¸à¸à¸à¸´</th></tr></thead>
         <tbody></tbody>
       </table>
-      <p class="note">💡 จดครบ 1 เดือนคุณจะรู้ว่า วันไหน/อากาศแบบไหน ควรเตรียมของเท่าไหร่ — นี่คือเครื่องมือลดของเหลือที่ดีที่สุด</p>
+      <p class="note">ð¡ à¸à¸à¸à¸£à¸ 1 à¹à¸à¸·à¸­à¸à¸à¸¸à¸à¸à¸°à¸£à¸¹à¹à¸§à¹à¸² à¸§à¸±à¸à¹à¸«à¸/à¸­à¸²à¸à¸²à¸¨à¹à¸à¸à¹à¸«à¸ à¸à¸§à¸£à¹à¸à¸£à¸µà¸¢à¸¡à¸à¸­à¸à¹à¸à¹à¸²à¹à¸«à¸£à¹ â à¸à¸µà¹à¸à¸·à¸­à¹à¸à¸£à¸·à¹à¸­à¸à¸¡à¸·à¸­à¸¥à¸à¸à¸­à¸à¹à¸«à¸¥à¸·à¸­à¸à¸µà¹à¸à¸µà¸à¸µà¹à¸ªà¸¸à¸</p>
     </div>
   </div>
 
   <!-- ======== PAGE 4: ACTION PLAN ======== -->
   <div class="page" id="page-plan">
     <div class="card">
-      <h2>✅ แผนลงมือ Step-by-Step</h2>
+      <h2>â à¹à¸à¸à¸¥à¸à¸¡à¸·à¸­ Step-by-Step</h2>
       <div class="progress"><div id="planBar"></div></div>
       <div id="checklist"></div>
-      <button class="reset" id="resetPlan">ล้างเช็กลิสต์</button>
+      <button class="reset" id="resetPlan">à¸¥à¹à¸²à¸à¹à¸à¹à¸à¸¥à¸´à¸ªà¸à¹</button>
     </div>
   </div>
 
-  <button class="reset" id="resetAll">ล้างค่าทั้งหมดกลับเป็นค่าแนะนำ</button>
-  <footer>ตัวเลขเริ่มต้นเป็นราคาประมาณการ — ไปเช็กราคาจริงที่แม็คโคร/ตลาดสด แล้วแก้ในเว็บนี้ได้เลย<br>สูตร: เป้าจริง/วัน = (ต้นทุนคงที่ + ค่าแรงตัวเอง) ÷ กำไรขั้นต้นเฉลี่ย</footer>
+  <button class="reset" id="resetAll">à¸¥à¹à¸²à¸à¸à¹à¸²à¸à¸±à¹à¸à¸«à¸¡à¸à¸à¸¥à¸±à¸à¹à¸à¹à¸à¸à¹à¸²à¹à¸à¸°à¸à¸³</button>
+  <footer>à¸à¸±à¸§à¹à¸¥à¸à¹à¸£à¸´à¹à¸¡à¸à¹à¸à¹à¸à¹à¸à¸£à¸²à¸à¸²à¸à¸£à¸°à¸¡à¸²à¸à¸à¸²à¸£ â à¹à¸à¹à¸à¹à¸à¸£à¸²à¸à¸²à¸à¸£à¸´à¸à¸à¸µà¹à¹à¸¡à¹à¸à¹à¸à¸£/à¸à¸¥à¸²à¸à¸ªà¸ à¹à¸¥à¹à¸§à¹à¸à¹à¹à¸à¹à¸§à¹à¸à¸à¸µà¹à¹à¸à¹à¹à¸¥à¸¢<br>à¸ªà¸¹à¸à¸£: à¹à¸à¹à¸²à¸à¸£à¸´à¸/à¸§à¸±à¸ = (à¸à¹à¸à¸à¸¸à¸à¸à¸à¸à¸µà¹ + à¸à¹à¸²à¹à¸£à¸à¸à¸±à¸§à¹à¸­à¸) Ã· à¸à¸³à¹à¸£à¸à¸±à¹à¸à¸à¹à¸à¹à¸à¸¥à¸µà¹à¸¢</footer>
 </div>
 
 <script>
 /* ===== default data ===== */
 const DEF = {
   equip: [
-    ['เตาแบน/กระทะแบนแก๊ส (ทำทาโก้+อุ่นแป้ง)','ใหม่',2500],
-    ['ถังแก๊ส + หัวปรับ + สาย','ใหม่',1200],
-    ['เต็นท์/ร่มสนาม + โต๊ะ 2 ตัว','มือสองได้',3500],
-    ['ป้ายร้าน + ป้ายราคา + ไฟ LED วอร์มไวท์','สำคัญมาก',1500],
-    ['หม้ออุ่นชีสซอสไฟฟ้า','ใบเล็กพอ',500],
-    ['คูลเลอร์น้ำแข็ง + เหยือกกดน้ำ','มือสองได้',1100],
-    ['อุปกรณ์ครัว (ที่คีบ ถาด กล่องวัตถุดิบ มีด เขียง)','',1500],
-    ['ลังขนของ + ผ้าใบกันฝน','จัดตามลำดับตั้งร้าน',600],
-    ['กล่องเก็บเงิน + ป้ายพร้อมเพย์','',200],
+    ['à¹à¸à¸²à¹à¸à¹à¸ª/à¸à¸£à¸°à¸à¸°à¹à¸à¸à¹à¸à¹à¸ª (à¸à¸³à¸à¸²à¹à¸à¹+à¸­à¸¸à¹à¸à¹à¸à¹à¸)','à¹à¸«à¸¡à¹',2500],
+    ['à¸à¸±à¸à¹à¸à¹à¸ª + à¸«à¸±à¸§à¸à¸£à¸±à¸ + à¸ªà¸²à¸¢','à¹à¸«à¸¡à¹',1200],
+    ['à¹à¸à¹à¸à¸à¹/à¸£à¹à¸¡à¸ªà¸à¸²à¸¡ + à¹à¸à¹à¸° 2 à¸à¸±à¸§','à¸¡à¸·à¸­à¸ªà¸­à¸à¹à¸à¹',3500],
+    ['à¸à¹à¸²à¸¢à¸£à¹à¸²à¸ + à¸à¹à¸²à¸¢à¸£à¸²à¸à¸² + à¹à¸ LED à¸§à¸­à¸£à¹à¸¡à¹à¸§à¸à¹','à¸ªà¸³à¸à¸±à¸à¸¡à¸²à¸',2000],
+    ['à¸«à¸¡à¹à¸­à¸­à¸¸à¹à¸à¸à¸µà¸ªà¸à¸­à¸ªà¹à¸à¸à¹à¸²','à¹à¸¡à¹à¹à¸¥à¸´à¸à¸à¸­',500],
+    ['à¸à¸¹à¸¥à¹à¸¥à¸­à¸£à¹à¸à¹à¸³à¹à¸à¹à¸ + à¹à¸«à¸¢à¸·à¸­à¸à¸à¸à¸à¹à¸³','à¸¡à¸·à¸­à¸ªà¸­à¸à¹à¸à¹',1100],
+    ['à¸­à¸¸à¸à¸à¸£à¸à¹à¸à¸£à¸±à¸§ (à¸à¸µà¹à¸à¸µà¸ à¸à¸²à¸ à¸à¸¥à¹à¸­à¸à¸§à¸±à¸à¸à¸¸à¸à¸´à¸ à¸¡à¸µà¸ à¹à¸à¸µà¸¢à¸)','à¸à¸·à¹à¸­à¸£à¸²à¸¢à¸à¸²à¸£...',1000],
+    ['à¸¥à¸±à¸à¸à¸à¸à¸­à¸ + à¸à¹à¸²à¹à¸à¸à¸±à¸à¸à¸','à¸à¸±à¸à¸à¸²à¸¡à¸ªà¸³à¸à¸±à¸à¸à¸±à¹à¸à¸£à¹à¸²à¸',600],
+    ['à¸à¸¥à¹à¸­à¸à¹à¸à¹à¸à¹à¸à¸´à¸ + à¸à¹à¸²à¸¢à¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹','à¸à¸·à¹à¸­à¸£à¸²à¸¢à¸à¸²à¸£...',200],
   ],
   stock: [
-    ['แป้งตอติญ่า ~60 แผ่น',350],
-    ['เนื้อไก่/หมู + เครื่องหมัก ~4 กก.',600],
-    ['ชีส + ชีสซอส',500],
-    ['ผักสด (กะหล่ำ หอม มะเขือเทศ ผักชี)',250],
-    ['ซัลซ่า/ซอส/มายองเนส',300],
-    ['ตอติญ่าชิปส์ (นาโชส์)',250],
-    ['เลม่อน + น้ำเชื่อม + โซดา',500],
-    ['แพ็กเกจจิ้ง (กระดาษห่อ กล่อง แก้ว หลอด ถุง)',450],
+    ['à¹à¸à¹à¸à¸à¸­à¸à¸´à¸à¹à¸² ~60 à¹à¸à¹à¸',350],
+    ['à¹à¸à¸·à¹à¸­à¹à¸à¹/à¸«à¸¡à¸¹ + à¹à¸à¸£à¸·à¹à¸­à¸à¸«à¸¡à¸±à¸ ~4 à¸à¸.',700],
+    ['à¸à¸µà¸ª + à¸à¸µà¸ªà¸à¸­à¸ª',600],
+    ['à¸à¸±à¸à¸ªà¸ (à¸à¸°à¹à¸«à¸£à¸µà¹à¸¢à¸¡ à¸«à¸­à¸¡ à¸¡à¸°à¹à¸à¸·à¸­à¹à¸à¸¨ à¸à¸±à¸à¸à¸µ)',250],
+    ['à¸à¸±à¸¥à¸à¹à¸²/à¸à¸­à¸ª/à¸¡à¸²à¸¢à¸­à¸à¹à¸à¸ª',300],
+    ['à¸à¸­à¸à¸´à¸à¹à¸²à¸à¸´à¸à¸ªà¹ (à¸à¸²à¹à¸à¸ªà¹)',250],
+    ['à¹à¸¥à¸¡à¹à¸­à¸ + à¸à¹à¸³à¹à¸à¸·à¹à¸­à¸¡ + à¹à¸à¸à¸²',500],
+    ['à¹à¸à¹à¸à¹à¸à¸à¸à¸´à¹à¸ (à¸à¸£à¸°à¸à¸²à¸©à¸«à¹à¸­ à¸à¸¥à¹à¸­à¸ à¹à¸à¹à¸§ à¸«à¸¥à¸­à¸ à¸à¸¸à¸)',450],
   ],
   reserve: [
-    ['ค่าเช่าล็อกรายวันช่วงทดสอบ 4–6 ครั้ง',2500],
-    ['เงินทอนตั้งต้น (แบงก์ย่อย+เหรียญ)',1000],
-    ['เงินสำรองฉุกเฉิน (ฝนตก/ของเสีย)',2000],
+    ['à¸à¹à¸²à¹à¸à¹à¸²à¸¥à¹à¸­à¸à¸£à¸²à¸¢à¸§à¸±à¸à¸à¹à¸§à¸à¸à¸à¸ªà¸­à¸ 4â6 à¸à¸£à¸±à¹à¸',2500],
+    ['à¹à¸à¸´à¸à¸à¸­à¸à¸à¸±à¹à¸à¸à¹à¸ (à¹à¸à¸à¸à¹à¸¢à¹à¸­à¸¢+à¹à¸«à¸£à¸µà¸¢à¸)',1000],
+    ['à¹à¸à¸´à¸à¸ªà¸³à¸£à¸­à¸à¸à¸¸à¸à¹à¸à¸´à¸ (à¸à¸à¸à¸/à¸à¸­à¸à¹à¸ªà¸µà¸¢)',2000],
   ],
-  taco: [['แป้งตอติญ่า 6 นิ้ว',4.5],['เนื้อไก่/หมูหมัก ~50 ก.',7.5],['ผักรวม',2],['ซัลซ่า + ครีม',2.5],['ชีสโรยหน้า',3],['กระดาษห่อ + ถุง',1.5]],
-  nacho: [['ตอติญ่าชิปส์',5],['ชีสซอส',4],['เนื้อ + ซัลซ่า',4],['กล่อง + ส้อม',2]],
-  soda: [['เลม่อนสด + น้ำเชื่อม',5],['โซดา',5],['แก้ว + หลอด + น้ำแข็ง',3]],
+  taco: [['à¹à¸à¹à¸à¸à¸­à¸à¸´à¸à¹à¸² 6 à¸à¸´à¹à¸§',3],['à¹à¸à¸·à¹à¸­à¹à¸à¹/à¸«à¸¡à¸¹à¸«à¸¡à¸±à¸ ~50 à¸. / à¸à¸à¸à¸£à¸¸à¸à¸£à¸ª à¸à¸³à¹à¸­à¸',7.5],['à¸à¸±à¸à¸£à¸§à¸¡',2],['à¸à¸±à¸¥à¸à¹à¸² + à¸à¸£à¸µà¸¡',2.5],['à¸à¸µà¸ª 20 à¸à¸£à¸±à¸¡',5.34],['à¸à¸£à¸°à¸à¸²à¸©à¸«à¹à¸­ + à¸à¸¥à¹à¸­à¸',2]],
+  nacho: [['à¸à¸­à¸à¸´à¸à¹à¸²à¸à¸´à¸à¸ªà¹',5],['à¸à¸µà¸ªà¸à¸­à¸ª',4],['à¹à¸à¸·à¹à¸­ + à¸à¸±à¸¥à¸à¹à¸²',4],['à¸à¸¥à¹à¸­à¸ + à¸ªà¹à¸­à¸¡',2]],
+  soda: [['à¹à¸¥à¸¡à¹à¸­à¸à¸ªà¸ + à¸à¹à¸³à¹à¸à¸·à¹à¸­à¸¡',5],['à¹à¸à¸à¸²',5],['à¹à¸à¹à¸§ + à¸«à¸¥à¸­à¸ + à¸à¹à¸³à¹à¸à¹à¸',3]],
   prices: {taco:59, nacho:49, soda:29},
-  fixed: {fcRent:500, fcUtil:100, fcOther:100, fcShip:400, fcTable:0, wage:600, days:20},
-  sim: {sTaco:30, sNacho:8, sSoda:20},
+  fixed: {fcRent:1000, fcUtil:200, fcOther:100, fcShip:400, fcTable:0, wage:600, days:20},
+  sim: {sTaco:40, sNacho:20, sSoda:30},
   plan: [
-    ['ลองทำสูตรจริง ชั่งน้ำหนัก ถ่ายรูป','ทำทาโก้ 3 ไส้ + นาโชส์ + โซดา ให้เพื่อน 5–10 คนชิม ถามว่า "ราคานี้ซื้อไหม" และดูยอดซื้อซ้ำ'],
-    ['เช็กราคาวัตถุดิบจริงที่แม็คโคร/ตลาดสด','เอาราคาจริงมาแก้ในแท็บต้นทุนเมนู — ต้นทุนผันแปรต้องไม่เกิน 40% ของราคาขาย'],
-    ['เดินสำรวจตลาดเป้าหมาย 2–3 แห่ง แห่งละ 3 รอบ','นับคนถือถุง เช็กร้านคู่แข่ง ดูว่ามีของกินสไตล์เม็กซิกันหรือยัง และกำลังซื้อวัยรุ่นถึง 59 บ.ไหม'],
-    ['หาซื้ออุปกรณ์ (เน้นมือสอง)','ดูแท็บงบลงทุน — ติ๊กออกถ้ายืมได้ อย่าให้งบบาน'],
-    ['ขายออนไลน์/พรีออเดอร์ทดสอบ 2 สัปดาห์','เปิดรับออเดอร์ในกลุ่มเพื่อน/หมู่บ้าน ดูยอดซื้อซ้ำ — คำชมไม่นับ ยอดซื้อซ้ำเท่านั้นที่นับ'],
-    ['เช่าล็อกรายวันทดลอง 4–6 ครั้ง','ลอง 2–3 ตลาด อย่าเพิ่งเซ็นรายเดือน — จดยอดขายทุกวันเทียบกับเป้าในแท็บจำลอง'],
-    ['ทดสอบราคา 50 vs 59','ขายคนละวัน ดูจำนวนที่ขายได้จริง ไม่ใช่ความรู้สึก'],
-    ['ตัดสินใจด้วยตัวเลข','ถ้า 6–8 สัปดาห์ยอดเฉลี่ยไม่ถึง 70% ของเป้าจริง → เปลี่ยนตลาดหรือปรับเมนู เขียนเกณฑ์นี้ไว้ก่อนเริ่ม!'],
-    ['ผ่านเกณฑ์ → เซ็นรายเดือน + เพิ่มเซ็ตคอมโบเต็มรูปแบบ','ค่อยลงทุนเพิ่ม ป้ายสวย ๆ ไฟเพิ่ม เมนูเสริม เมื่อยอดนิ่งแล้วเท่านั้น'],
+    ['à¸¥à¸­à¸à¸à¸³à¸ªà¸¹à¸à¸£à¸à¸£à¸´à¸ à¸à¸±à¹à¸à¸à¹à¸³à¸«à¸à¸±à¸ à¸à¹à¸²à¸¢à¸£à¸¹à¸','à¸à¸³à¸à¸²à¹à¸à¹ 3 à¹à¸ªà¹ + à¸à¸²à¹à¸à¸ªà¹ + à¹à¸à¸à¸² à¹à¸«à¹à¹à¸à¸·à¹à¸­à¸ 5â10 à¸à¸à¸à¸´à¸¡ à¸à¸²à¸¡à¸§à¹à¸² "à¸£à¸²à¸à¸²à¸à¸µà¹à¸à¸·à¹à¸­à¹à¸«à¸¡" à¹à¸¥à¸°à¸à¸¹à¸¢à¸­à¸à¸à¸·à¹à¸­à¸à¹à¸³'],
+    ['à¹à¸à¹à¸à¸£à¸²à¸à¸²à¸§à¸±à¸à¸à¸¸à¸à¸´à¸à¸à¸£à¸´à¸à¸à¸µà¹à¹à¸¡à¹à¸à¹à¸à¸£/à¸à¸¥à¸²à¸à¸ªà¸','à¹à¸­à¸²à¸£à¸²à¸à¸²à¸à¸£à¸´à¸à¸¡à¸²à¹à¸à¹à¹à¸à¹à¸à¹à¸à¸à¹à¸à¸à¸¸à¸à¹à¸¡à¸à¸¹ â à¸à¹à¸à¸à¸¸à¸à¸à¸±à¸à¹à¸à¸£à¸à¹à¸­à¸à¹à¸¡à¹à¹à¸à¸´à¸ 40% à¸à¸­à¸à¸£à¸²à¸à¸²à¸à¸²à¸¢'],
+    ['à¹à¸à¸´à¸à¸ªà¸³à¸£à¸§à¸à¸à¸¥à¸²à¸à¹à¸à¹à¸²à¸«à¸¡à¸²à¸¢ 2â3 à¹à¸«à¹à¸ à¹à¸«à¹à¸à¸¥à¸° 3 à¸£à¸­à¸','à¸à¸±à¸à¸à¸à¸à¸·à¸­à¸à¸¸à¸ à¹à¸à¹à¸à¸£à¹à¸²à¸à¸à¸¹à¹à¹à¸à¹à¸ à¸à¸¹à¸§à¹à¸²à¸¡à¸µà¸à¸­à¸à¸à¸´à¸à¸ªà¹à¸à¸¥à¹à¹à¸¡à¹à¸à¸à¸´à¸à¸±à¸à¸«à¸£à¸·à¸­à¸¢à¸±à¸ à¹à¸¥à¸°à¸à¸³à¸¥à¸±à¸à¸à¸·à¹à¸­à¸§à¸±à¸¢à¸£à¸¸à¹à¸à¸à¸¶à¸ 59 à¸.à¹à¸«à¸¡'],
+    ['à¸«à¸²à¸à¸·à¹à¸­à¸­à¸¸à¸à¸à¸£à¸à¹ (à¹à¸à¹à¸à¸¡à¸·à¸­à¸ªà¸­à¸)','à¸à¸¹à¹à¸à¹à¸à¸à¸à¸¥à¸à¸à¸¸à¸ â à¸à¸´à¹à¸à¸­à¸­à¸à¸à¹à¸²à¸¢à¸·à¸¡à¹à¸à¹ à¸­à¸¢à¹à¸²à¹à¸«à¹à¸à¸à¸à¸²à¸'],
+    ['à¸à¸²à¸¢à¸­à¸­à¸à¹à¸¥à¸à¹/à¸à¸£à¸µà¸­à¸­à¹à¸à¸­à¸£à¹à¸à¸à¸ªà¸­à¸ 2 à¸ªà¸±à¸à¸à¸²à¸«à¹','à¹à¸à¸´à¸à¸£à¸±à¸à¸­à¸­à¹à¸à¸­à¸£à¹à¹à¸à¸à¸¥à¸¸à¹à¸¡à¹à¸à¸·à¹à¸­à¸/à¸«à¸¡à¸¹à¹à¸à¹à¸²à¸ à¸à¸¹à¸¢à¸­à¸à¸à¸·à¹à¸­à¸à¹à¸³ â à¸à¸³à¸à¸¡à¹à¸¡à¹à¸à¸±à¸ à¸¢à¸­à¸à¸à¸·à¹à¸­à¸à¹à¸³à¹à¸à¹à¸²à¸à¸±à¹à¸à¸à¸µà¹à¸à¸±à¸'],
+    ['à¹à¸à¹à¸²à¸¥à¹à¸­à¸à¸£à¸²à¸¢à¸§à¸±à¸à¸à¸à¸¥à¸­à¸ 4â6 à¸à¸£à¸±à¹à¸','à¸¥à¸­à¸ 2â3 à¸à¸¥à¸²à¸ à¸­à¸¢à¹à¸²à¹à¸à¸´à¹à¸à¹à¸à¹à¸à¸£à¸²à¸¢à¹à¸à¸·à¸­à¸ â à¸à¸à¸¢à¸­à¸à¸à¸²à¸¢à¸à¸¸à¸à¸§à¸±à¸à¹à¸à¸µà¸¢à¸à¸à¸±à¸à¹à¸à¹à¸²à¹à¸à¹à¸à¹à¸à¸à¸³à¸¥à¸­à¸'],
+    ['à¸à¸à¸ªà¸­à¸à¸£à¸²à¸à¸² 50 vs 59','à¸à¸²à¸¢à¸à¸à¸¥à¸°à¸§à¸±à¸ à¸à¸¹à¸à¸³à¸à¸§à¸à¸à¸µà¹à¸à¸²à¸¢à¹à¸à¹à¸à¸£à¸´à¸ à¹à¸¡à¹à¹à¸à¹à¸à¸§à¸²à¸¡à¸£à¸¹à¹à¸ªà¸¶à¸'],
+    ['à¸à¸±à¸à¸ªà¸´à¸à¹à¸à¸à¹à¸§à¸¢à¸à¸±à¸§à¹à¸¥à¸','à¸à¹à¸² 6â8 à¸ªà¸±à¸à¸à¸²à¸«à¹à¸¢à¸­à¸à¹à¸à¸¥à¸µà¹à¸¢à¹à¸¡à¹à¸à¸¶à¸ 70% à¸à¸­à¸à¹à¸à¹à¸²à¸à¸£à¸´à¸ â à¹à¸à¸¥à¸µà¹à¸¢à¸à¸à¸¥à¸²à¸à¸«à¸£à¸·à¸­à¸à¸£à¸±à¸à¹à¸¡à¸à¸¹ à¹à¸à¸µà¸¢à¸à¹à¸à¸à¸à¹à¸à¸µà¹à¹à¸§à¹à¸à¹à¸­à¸à¹à¸£à¸´à¹à¸¡!''],
+    ['à¸à¹à¸²à¸à¹à¸à¸à¸à¹ â à¹à¸à¹à¸à¸£à¸²à¸¢à¹à¸à¸·à¸­à¸ + à¹à¸à¸´à¹à¸¡à¹à¸à¹à¸à¸à¸­à¸¡à¹à¸à¹à¸à¹à¸¡à¸£à¸¸à¸à¹à¸à¸;'à¸à¹à¸­à¸à¸§à¸à¸à¸¸à¸à¹à¸®à¸´à¹à¸¡à¸à¹à¸²à¸¢à¸ªà¸§à¸¢ à¹ à¹à¸à¹à¸à¸´à¹à¸¡ à¹à¸¡à¸à¸¹à¹à¸ªà¸£à¸´à¸¡ à¹à¸¡à¸·à¹à¸­à¸¢à¸­à¸à¸à¸´à¹à¸à¹à¸¥à¹à¸§à¹à¸à¹à¸²à¸à¸±à¹à¸'],
   ]
 };
 
@@ -354,14 +354,14 @@ function rowInput(val, cb){
 }
 function txtInput(val, cb, small){
   const inp = document.createElement('input');
-  inp.type='text'; inp.value=val; inp.placeholder='ชื่อรายการ...';
+  inp.type='text'; inp.value=val; inp.placeholder='à¸à¸·à¹à¸­à¸£à¸²à¸¢à¸à¸²à¸£...';
   if(small) inp.className='small';
   inp.addEventListener('input', ()=>{ cb(inp.value); saveS(); });
   return inp;
 }
 function delBtn(cb){
   const b = document.createElement('button');
-  b.className='del'; b.textContent='✕'; b.title='ลบรายการ';
+  b.className='del'; b.textContent='â'; b.title='à¸¥à¸à¸£à¸²à¸¢à¸à¸²à¸£';
   b.addEventListener('click', ()=>{ cb(); calcAll(); saveS(); });
   return b;
 }
@@ -442,10 +442,10 @@ function renderLog(){
   });
   const c = logs.length;
   $('lgDays').textContent = c;
-  $('lgAvgRev').textContent = c ? fmt(totRev/c) : '—';
-  $('lgAvgNet').textContent = c ? (totNet/c>=0?'+':'')+fmt(totNet/c) : '—';
+  $('lgAvgRev').textContent = c ? fmt(totRev/c) : 'â';
+  $('lgAvgNet').textContent = c ? (totNet/c>=0?'+':'')+fmt(totNet/c) : 'â';
   $('lgAvgNet').style.color = c && totNet/c<0 ? 'var(--red)' : '';
-  $('lgPass').textContent = c ? pass+'/'+c+' วัน ('+Math.round(pass/c*100)+'%)' : '—';
+  $('lgPass').textContent = c ? pass+'/'+c+' à¸§à¸±à¸ ('+Math.round(pass/c*100)+'%)' : 'â';
 }
 
 /* ===== calculations ===== */
@@ -457,39 +457,39 @@ function calcAll(){
   const stockT = sum(S.stock,1);
   const reserveT = sum(S.reserve,1);
   const grand = equipT + stockT + reserveT;
-  $('equipTotal').textContent = fmt(equipT)+' บาท';
-  $('stockTotal').textContent = fmt(stockT)+' บาท';
-  $('reserveTotal').textContent = fmt(reserveT)+' บาท';
-  $('grandTotal').textContent = fmt(grand)+' บาท';
-  $('grandNote').textContent = 'อุปกรณ์ '+fmt(equipT)+' + วัตถุดิบ '+fmt(stockT)+' + เงินสำรอง '+fmt(reserveT)+' — แนะนำเตรียมเผื่ออีก 10% กันเหตุไม่คาดฝัน (รวม ~'+fmt(Math.ceil(grand*1.1/100)*100)+' บาท)';
+  $('equipTotal').textContent = fmt(equipT)+' à¸à¸²à¸';
+  $('stockTotal').textContent = fmt(stockT)+' à¸à¸²à¸';
+  $('reserveTotal').textContent = fmt(reserveT)+' à¸à¸²à¸';
+  $('grandTotal').textContent = fmt(grand)+' à¸à¸²à¸';
+  $('grandNote').textContent = 'à¸­à¸¸à¸à¸à¸£à¸à¹ '+fmt(equipT)+' + à¸§à¸±à¸à¸à¸¸à¸à¸´à¸ '+fmt(stockT)+' + à¹à¸à¸´à¸à¸ªà¸³à¸£à¸­à¸ '+fmt(reserveT)+' â à¹à¸à¸°à¸à¸³à¹à¸à¸£à¸µà¸¢à¸¡à¹à¸à¸·à¹à¸­à¸­à¸µà¸ 10% à¸à¸±à¸à¹à¸«à¸à¸¸à¹à¸¡à¹à¸à¸²à¸à¸à¸±à¸ (à¸£à¸§à¸¡ ~'+fmt(Math.ceil(grand*1.1/100)*100)+' à¸à¸²à¸)';
 
   // menu costs
   const vc = { taco:sum(S.taco,1), nacho:sum(S.nacho,1), soda:sum(S.soda,1) };
   const pr = S.prices;
   const mg = { taco:pr.taco-vc.taco, nacho:pr.nacho-vc.nacho, soda:pr.soda-vc.soda };
   ['taco','nacho','soda'].forEach(k=>{
-    $(k+'VC').textContent = fmt(vc[k],1)+' บ.';
-    $(k+'Margin').textContent = fmt(mg[k],1)+' บ.';
+    $(k+'VC').textContent = fmt(vc[k],1)+' à¸.';
+    $(k+'Margin').textContent = fmt(mg[k],1)+' à¸.';
     $(k+'Margin').style.color = mg[k]>0?'var(--green)':'var(--red)';
     const pct = pr[k]>0 ? vc[k]/pr[k]*100 : 0;
     let html='';
-    if(pr[k]>0 && mg[k]<=0) html='<div class="alert bad">⛔ ต้นทุนสูงกว่าราคาขาย — ขาดทุนทุกหน่วย</div>';
-    else if(pct>40) html='<div class="alert warn">⚠️ ต้นทุน '+pct.toFixed(0)+'% ของราคาขาย — เกินเกณฑ์ 40%</div>';
-    else if(pr[k]>0) html='<div class="alert good">✅ ต้นทุน '+pct.toFixed(0)+'% — ผ่านเกณฑ์ 40%</div>';
+    if(pr[k]>0 && mg[k]<=0) html='<div class="alert bad">â à¸à¹à¸à¸à¸¸à¸à¸ªà¸¹à¸à¸à¸§à¹à¸²à¸£à¸²à¸à¸²à¸à¸²à¸¢ â à¸à¸²à¸à¸à¸¸à¸à¸à¸¸à¸à¸«à¸à¹à¸§à¸¢</div>';
+    else if(pct>40) html='<div class="alert warn">â ï¸ à¸à¹à¸à¸à¸¸à¸ '+pct.toFixed(0)+'% à¸à¸­à¸à¸£à¸²à¸à¸²à¸à¸²à¸¢ â à¹à¸à¸´à¸à¹à¸à¸à¸à¹ 40%</div>';
+    else if(pr[k]>0) html='<div class="alert good">â à¸à¹à¸à¸à¸¸à¸ '+pct.toFixed(0)+'% â à¸à¹à¸²à¸à¹à¸à¸à¸à¹ 40%</div>';
     $(k+'Alert').innerHTML = html;
   });
 
   // combos
   const combos = [
-    ['เซ็ตเดี่ยว: ทาโก้ 1 + โซดา 1', pr.taco+pr.soda, Math.round((pr.taco+pr.soda)*0.9), vc.taco+vc.soda],
-    ['เซ็ตคู่: ทาโก้ 2 + โซดา 1', pr.taco*2+pr.soda, Math.round((pr.taco*2+pr.soda)*0.81), vc.taco*2+vc.soda],
-    ['เซ็ตแก๊ง: ทาโก้ 2 + นาโชส์ 1 + โซดา 2', pr.taco*2+pr.nacho+pr.soda*2, Math.round((pr.taco*2+pr.nacho+pr.soda*2)*0.885), vc.taco*2+vc.nacho+vc.soda*2],
+    ['à¹à¸à¹à¸à¹à¸à¸µà¹à¸¢à¸§: à¸à¸²à¹à¸à¹ 1 + à¹à¸à¸à¸² 1', pr.taco+pr.soda, Math.round((pr.taco+pr.soda)*0.9), vc.taco+vc.soda],
+    ['à¹à¸à¹à¸à¸à¸¹à¹: à¸à¸²à¹à¸à¹ 2 + à¹à¸à¸à¸² 1', pr.taco*2+pr.soda, Math.round((pr.taco*2+pr.soda)*0.81), vc.taco*2+vc.soda],
+    ['à¹à¸à¹à¸à¹à¸à¹à¸: à¸à¸²à¹à¸à¹ 2 + à¸à¸²à¹à¸à¸ªà¹ 1 + à¹à¸à¸à¸² 2', pr.taco*2+pr.nacho+pr.soda*2, Math.round((pr.taco*2+pr.nacho+pr.soda*2)*0.885), vc.taco*2+vc.nacho+vc.soda*2],
   ];
   const ctb = $('comboTable').querySelector('tbody'); ctb.innerHTML='';
   combos.forEach(c=>{
     const setP = Math.round(c[2]/1)*1;
     const tr = document.createElement('tr');
-    tr.innerHTML = '<td>'+c[0]+'</td><td style="color:var(--muted);text-decoration:line-through;">'+fmt(c[1])+'</td><td style="font-weight:800;color:var(--accent);">'+fmt(setP)+' บ.</td><td style="color:var(--green);font-weight:700;">'+fmt(setP-c[3])+' บ.</td>';
+    tr.innerHTML = '<td>'+c[0]+'</td><td style="color:var(--muted);text-decoration:line-through;">'+fmt(c[1])+'</td><td style="font-weight:800;color:var(--accent);">'+fmt(setP)+' à¸.</td><td style="color:var(--green);font-weight:700;">'+fmt(setP-c[3])+' à¸.</td>';
     ctb.appendChild(tr);
   });
 
@@ -510,20 +510,20 @@ function calcAll(){
   $('kNet').style.color = net>=0?'var(--green)':'var(--red)';
   $('kMonth').textContent = (net>=0?'+':'')+fmt(net*days);
   $('kMonth').style.color = net>=0?'var(--green)':'var(--red)';
-  $('kMonthSub').textContent = days+' วันขาย/เดือน';
-  $('kPayback').textContent = (net>0 && grand>0) ? fmt(Math.ceil(grand/net))+' วันขาย' : (net<=0?'ไม่คืนทุน':'—');
+  $('kMonthSub').textContent = days+' à¸§à¸±à¸à¸à¸²à¸¢/à¹à¸à¸·à¸­à¸';
+  $('kPayback').textContent = (net>0 && grand>0) ? fmt(Math.ceil(grand/net))+' à¸§à¸±à¸à¸à¸²à¸¢' : (net<=0?'à¹à¸¡à¹à¸à¸·à¸à¸à¸¸à¸':'â');
 
   const pill = $('statusPill');
-  if(net>=0){ pill.className='pill ok'; pill.textContent='✅ ผ่านเป้าจริง — ได้ค่าแรงครบ + กำไรเก็บ '+fmt(net)+' บ./วัน'; }
-  else if(gross>=fc){ pill.className='pill no'; pill.textContent='⚠️ เกินจุดเสมอตัวแต่ค่าแรงตัวเองยังไม่ครบ — ขาดอีก '+fmt(-net)+' บ./วัน'; }
-  else { pill.className='pill no'; pill.textContent='⛔ ยังไม่ถึงจุดเสมอตัว — ขาดทุน '+fmt(fc-gross+wage)+' บ./วัน (รวมค่าแรง)'; }
+  if(net>=0){ pill.className='pill ok'; pill.textContent='â à¸à¹à¸²à¸à¹à¸à¹à¸²à¸à¸£à¸´à¸ â à¹à¸à¹à¸à¹à¸²à¹à¸£à¸à¸à¸£à¸ + à¸à¸³à¹à¸£à¹à¸à¹à¸ '+fmt(net)+' à¸./à¸§à¸±à¸'; }
+  else if(gross>=fc){ pill.className='pill no'; pill.textContent='â ï¸ à¹à¸à¸´à¸à¸à¸¸à¸à¹à¸ªà¸¡à¸­à¸à¸±à¸§à¹à¸à¹à¸à¹à¸²à¹à¸£à¸à¸à¸±à¸§à¹à¸­à¸à¸¢à¸±à¸à¹à¸¡à¹à¸à¸£à¸ â à¸à¸²à¸à¸­à¸µà¸ '+fmt(-net)+' à¸./à¸§à¸±à¸'; }
+  else { pill.className='pill no'; pill.textContent='â à¸¢à¸±à¸à¹à¸¡à¹à¸à¸¶à¸à¸à¸¸à¸à¹à¸ªà¸¡à¸­à¸à¸±à¸§ â à¸à¸²à¸à¸à¸¸à¸ '+fmt(fc-gross+wage)+' à¸./à¸§à¸±à¸ (à¸£à¸§à¸¡à¸à¹à¸²à¹à¸£à¸)'; }
 
   // break-even hint
   let html='';
   if(mg.taco>0){
     const beTaco = Math.ceil((fc+wage)/mg.taco);
     const beMix = Math.ceil((fc+wage - 20*mg.soda - 5*mg.nacho)/mg.taco);
-    html = '<div class="alert good">🎯 เป้าจริง (ต้นทุนคงที่ '+fmt(fc)+' + ค่าแรง '+fmt(wage)+' = '+fmt(fc+wage)+' บ./วัน):<br>· ขายทาโก้อย่างเดียว ต้อง '+fmt(beTaco)+' ชิ้น/วัน<br>· ถ้ามีโซดา 20 แก้ว + นาโชส์ 5 กล่องช่วย ทาโก้เหลือแค่ '+fmt(Math.max(beMix,0))+' ชิ้น/วัน — นี่คือพลังของเมนูเสริม</div>';
+    html = '<div class="alert good">ð¯ à¹à¸à¹à¸²à¸à¸£à¸´à¸ (à¸à¹à¸à¸à¸¸à¸à¸à¸à¸à¸µà¹ '+fmt(fc)+' + à¸à¹à¸²à¹à¸£à¸ '+fmt(wage)+' = '+fmt(fc+wage)+' à¸./à¸§à¸±à¸):<br>Â· à¸à¸²à¸¢à¸à¸²à¹à¸à¹à¸­à¸¢à¹à¸²à¸à¹à¸à¸µà¸¢à¸§ à¸à¹à¸­à¸ '+fmt(beTaco)+' à¸à¸´à¹à¸/à¸§à¸±à¸<br>Â· à¸à¹à¸²à¸¡à¸µà¹à¸à¸à¸² 20 à¹à¸à¹à¸§ + à¸à¸²à¹à¸à¸ªà¹ 5 à¸à¸¥à¹à¸­à¸à¸à¹à¸§à¸¢ à¸à¸²à¹à¸à¹à¹à¸«à¸¥à¸·à¸­à¹à¸à¹ '+fmt(Math.max(beMix,0))+' à¸à¸´à¹à¸/à¸§à¸±à¸ â à¸à¸µà¹à¸à¸·à¸­à¸à¸¥à¸±à¸à¸à¸­à¸à¹à¸¡à¸à¸¹à¹à¸ªà¸£à¸´à¸¡</div>';
   }
   $('simAlerts').innerHTML = html;
   renderLog();
@@ -577,25 +577,12 @@ function wire(){
   $('logDate').value = new Date().toISOString().slice(0,10);
   $('logAdd').addEventListener('click',()=>{
     const t=+$('logTaco').value||0, n=+$('logNacho').value||0, s=+$('logSoda').value||0;
-    if(t+n+s===0){ alert('ใส่จำนวนที่ขายได้อย่างน้อย 1 ช่องก่อนครับ'); return; }
+    if(t+n+s===0){ alert('à¹à¸ªà¹à¸à¸³à¸à¸§à¸à¸à¸µà¹à¸à¸²à¸¢à¹à¸à¹à¸­à¸¢à¹à¸²à¸à¸à¹à¸­à¸¢ 1 à¸à¹à¸­à¸à¸à¹à¸­à¸à¸à¸£à¸±à¸'); return; }
     S.log.push({ d: $('logDate').value || new Date().toISOString().slice(0,10), t, n, s, note: $('logNote').value.trim() });
     $('logTaco').value=$('logNacho').value=$('logSoda').value=$('logNote').value='';
     renderLog(); saveS();
   });
   $('resetPlan').addEventListener('click',()=>{ S.planDone=DEF.plan.map(()=>false); renderPlan(); saveS(); });
   $('resetAll').addEventListener('click',()=>{
-    if(confirm('ล้างทุกอย่างกลับเป็นค่าแนะนำ?')){
+    if(confirm('à¸¥à¹à¸²à¸à¸à¸¸à¸à¸­à¸¢à¹à¸²à¸à¸à¸¥à¸±à¸à¹à¸à¹à¸à¸à¹à¸²à¹à¸à¸°à¸à¸³?')){
       try{ localStorage.removeItem('taco-plan-v2'); }catch(e){}
-      location.reload();
-    }
-  });
-}
-
-loadS();
-renderAllTables();
-renderPlan();
-wire();
-calcAll();
-</script>
-</body>
-</html>
